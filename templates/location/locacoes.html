@@ -1,0 +1,117 @@
+{%extends 'BaseItems/baseTabela.html'%}
+
+{% block cardTitle %}
+    {%if prev  == "location:locations" %}
+    <h3 class="card-title">Locações de {{vehicle.vehicle_type}}, Chassi: {{vehicle.chassi}} </h3>
+    {%else%}
+    <h3 class="card-title">Locações de {{request.user.company_name}}</h3>
+    {%endif%}
+{% endblock cardTitle %}
+
+
+          
+{% block thead %}
+    <tr>
+        <th>ID</th>
+        <th>Inicio</th>
+        <th>Fim</th>
+        <th>Meses</th>
+        <th>Empresa</th>
+        <th>Total</th>
+        <th><th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+{% endblock thead %}
+              
+           
+{% block tbody %}
+{%for i in tabela%}
+        <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.start_location}}</td>
+        <td>{{i.end_location}}</td>
+        <td>{{i.number_months}} </td>
+        <td>{{i.empresa_name}} </td>
+        <td><span class="tag tag-success">R$ {{i.total_value}}</span></td>
+    
+        <td>
+        {%if i.can_remove is True and i.id_vehicle.slug != None %}
+        <a type="button" id="areSure" href="{%url  removeTag i.id_vehicle.slug i.id%}" class="areSure btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir">
+            <i class="fa-solid fa-trash-can"></i>
+        </a>
+        {%else%}
+        <a type="button" id="areSure" href="{%url  removeTag i.id_vehicle.slug i.id%}"  class=" disabled areSure btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir">
+            <i class="fa-solid fa-trash-can"></i>
+        </a>
+        {%endif%}
+        </td>
+
+        <td>
+        {% if i.status is True and i.id_vehicle.slug != None %}
+        <a type="button" href="{%url editTag i.id_vehicle.slug i.id %}" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Editar">
+            <i class="fa-solid fa-pen-to-square"></i>
+        </a>
+    {%else%}
+        <a type="button" href="{%url editTag i.id_vehicle.slug i.id %}" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Editar">
+        <i class="fa-solid fa-pen-to-square"></i>
+        </a>
+    {%endif%}
+    </td>
+        <td><a type="button" href="{%url portionTag i.id%}" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Parcelas">
+        <i class="fa-solid fa-dollar-sign"></i>
+        </a></td>
+    
+    <td><a type="button"  href="{%url 'location:pdf' i.id %} " name="download" value ="{{i.id}}" class="wantPay btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Baixar Contrato !">
+        <i class="fa-solid fa-cloud-arrow-down"></i>                      </a>
+    </td>
+    </tr>
+    {%endfor%}
+                   
+              
+{% endblock tbody %}
+
+
+{%block botao%}
+{%if editTag == "location:edit" %}
+<button id="voltar" class="voltar btn btn-dark" type='button'>Voltar <i class="fa-solid fa-angle-left"></i></button>
+{%endif%}
+{%endblock botao%}
+
+
+
+{%block funcoes%}
+    <script>
+    
+    {% for msg in messages%}
+    {% if msg.tags == "message-sucess" %}
+    var icon="success";
+    {% elif msg.tags == "message-error" %}
+    var icon="error";
+    {%endif%}
+    swal({
+        title: "{{msg}}",
+        icon: icon,
+        timer: 3000,
+        button: "ok"})
+    {% endfor %}
+
+    $(document).on('click', '.areSure', function(){
+        return confirm("Tem certeza que deseja deletar ?")
+    });
+
+    document.getElementById("voltar").onclick= function(){
+    {% if prev == "location:locations"%}
+        window.location="{% url 'vehicle:profile' slug %}"
+    {%else%}
+        window.location="{% url 'location:allLocations' %}"
+    {%endif%}
+    };
+
+    </script>
+{%endblock funcoes%}
+            
+
+
+

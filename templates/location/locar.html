@@ -1,0 +1,96 @@
+{% extends 'BaseItems/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block links %}
+  <link href="{% static 'css/screenChange.css' %}" rel="stylesheet" />
+{% endblock links %}
+{% block pesquisa %}{% endblock %}
+{% block opcoes %}
+  {%include 'includeItems/VehicleOption.html' %}  
+{% endblock opcoes %}
+{% block content %}
+  <div onload="readOnlyFunction();"  class="container-fluid">
+    <div class="content">
+      <div class=" content-card  card">
+        <div class="card-body ">
+          <h5 class="card-header bg-teal card-header-color text-center mb-4">
+            Locar Veiculo: {{ vehicle.vehicle_type }}, {{ vehicle.year }},  Chassi: {{ vehicle.chassi }}
+          </h5>
+          <div class="card-text">
+            <form method='POST'>
+              {% csrf_token %}
+              <div class="row">
+                {% for field in form.visible_fields  %}
+                  <div class="col-md-3">
+                    {{ field|as_crispy_field }}
+                    <datalist id="datalistOptions">
+                      {% for i in types %}
+                        <option value={{i}}>{{i }}
+                        </option>
+                      {% endfor %}
+                    </datalist>
+                  </div>
+                {% endfor %}
+                <div class="card-footer  text-center">
+                  <button id="botaoVoltar"
+                          type="button"
+                          class="btn btn-secondary"
+                          data-dismiss="modal">Voltar</button>
+                  <button type="submit" name="CadastrarPost" class=" btn btn-primary">Finalizar Locação</button>
+                  <a href="{% url 'clientCompany:register' vehicle.id %}"
+                     type="submit"
+                     class="btn btn-success"
+                     data-toggle="tooltip"
+                     data-placement="top"
+                     title="Cadastrar Nova  Empresa">
+                     <i class="fa-solid fa-plus"></i>
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+{% block  scriptAdd %}
+ 
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+  <script>
+      {% for msg in messages  %}
+      swal({
+       title: "Veiculo Locado com Sucesso!!",
+       icon: "success",
+       timer: 3000,
+       button: "ok"}).then((value) => {
+        window.location="{%url 'vehicle:one'%}";
+      });
+      {% endfor %}
+
+      function readOnlyFunction(){
+        document.getElementById('startLocationID').readOnly = false;    //to enable readonly
+      };
+
+      document.getElementById('botaoVoltar').onclick= function(){
+        swal({
+          title: "Tem certeza que deseja retornar?",
+          text: "Poderá perder dados ja digitados",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        }).then((willDelete) => {
+          if (willDelete) {
+              {% if profile == 'veiculos'%}
+              window.location="{%url 'vehicle:one' %}";
+              {% else %}
+              window.location="{%url 'vehicle:profile' slug%}"
+              {% endif %}
+          } else {
+            swal({title:"Pode alterar seus dados ", timer:1000});
+          }
+        });
+      };
+  </script>
+{% endblock scriptAdd %}

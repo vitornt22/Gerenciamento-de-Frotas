@@ -1,0 +1,49 @@
+
+{% load crispy_forms_tags %}
+<form method="POST">
+  {% csrf_token %}
+<table class=" text-left table">
+    <thead>
+      <tr>
+        <th scope="col">Ocasiao</th>
+        <th scope="col">Valor</th>
+        <th scope="col">Data</th>
+        {%if tag == "Gastos" %}
+        <th scope="col"></th>
+        <th scope="col"></th>
+        {%endif%}
+
+      </tr>
+    </thead>
+    <tbody>
+      {% if tabela is not None%}
+      {%for i in tabela %}
+      
+      <tr class="trEffect" >
+        <td> {{i.occasion}} </td>
+        <td> {{i.valor}} </td>
+        <td> {{i.date}} </td>
+        {% if tag == "Gastos" %}
+        <td><button type="submit"  name="removerTableButton" value = "{{i.id}}"  class="areSure btn btn-danger">Remover</button></td>
+        <td><a type="button" href="{%url 'spent:spentEdit' slug i.id %}" name="editarTableButton"  class="text-decoration-none btn btn-primary"  >Editar</a></td>
+        {%else%}
+        {% if i.it_paid  is True and i.can_pay is False %}
+        <td><button style="width: 10rem; height:4rem;"  type="submit"  name="" value = "{{i.id}}"  class="disabled btn btn-grey">Pago!</button></td>
+        {%elif i.can_pay is True%}
+        <td><button style="font-size: 0.8rem; width: 7rem; height:4rem;"  type="submit"  name="its_Paid" value ="{{i.id}}" data-toggle="tooltip" data-placement="top" titel="Precisa pagar o Mês anterio para pagar este"  class="    wantPay btn btn-success">Marcar como Pago <i class="fa-regular fa-circle-check"></i></button></td>
+        {%else%}
+        <td><button style="font-size: 0.8rem; width: 7rem; height:4rem;"  type="submit"  name="its_Paid" value ="{{i.id}}" data-toggle="tooltip" data-placement="top" titel="Precisa pagar o Mês anterio para pagar este"  class="disabled    wantPay btn btn-success">Marcar como Pago <i class="fa-regular fa-circle-check"></i></button></td>
+        {%endif%}
+        {%endif %}    
+      </tr>
+      {% endfor %}
+      {%endif%}
+
+
+      
+    </tbody>
+  </table>
+</form>
+
+
+  

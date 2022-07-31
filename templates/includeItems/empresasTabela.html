@@ -1,0 +1,42 @@
+
+{% load crispy_forms_tags %}
+<form method="POST">
+  {% csrf_token %}
+<table class=" text-left table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">CNPJ</th>
+        <th scope="col">Email</th>
+        <th scope="col">Contato</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% if tabela != None%}
+          {%for i in tabela %}
+          
+          <tr class="trEffect" >
+            <td> {{i.name}} </td>
+            <td> {{i.cnpj}} </td>
+            <td> {{i.email}} </td>
+            <td> {{i.contact}} </td>
+            <td><a type="button" href="{%url 'clientCompany:remove' i.slug%}" name="removerTableButton" value = "{{i.slug}}"  class="areSure btn btn-danger">Remover</a></td>
+            <td><a type="button" href="{%url 'clientCompany:edit' i.slug%}" name="editarTableButton"  class="text-decoration-none btn btn-primary"  >Editar</a></td>
+
+          </tr>
+          {% endfor %}
+      {%endif%}
+
+
+      
+    </tbody>
+  </table>
+  
+
+</form>
+
+
+  

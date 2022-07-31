@@ -1,0 +1,36 @@
+<thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Inicio</th>
+      <th scope="col">Fim</th>
+      <th scope="col">Nº de meses</th>
+      <th scope="col">Meses pagos</th>
+      <th scope="col">Empresa</th>
+      <th scope="col">Valor total</th>
+      <th scope="col">Status</th>
+      <th scope="col">  </th>
+      <th scope="col">  </th>
+      <th scope="col">  </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if finished is not None%}
+    {%for i in finished %}
+    <tr class="trEffect" >
+      <td > {{i.id}} </td>
+      <td> {{i.start_location}} </td>
+      <td> {{i.end_location}} </td>
+      <td> {{i.number_months}} </td>
+      <td>  "XX"   </td>
+      <td> {{i.id_empresa.name}}-{{i.id_empresa.cnpj}}</td>
+      <td> {{i.total_value}} </td>
+      <td> {{i.status}} </td>
+         
+
+    </tr>
+  
+    {% endfor %}
+    {%endif%}
+
+
+  </tbody>

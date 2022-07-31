@@ -1,0 +1,75 @@
+{%extends 'BaseItems/base.html'%}
+
+
+
+{% block content %}
+<!-- /.row -->
+    
+  {% if resultados %}
+      <div style="width:100%;" class=" shadow-sm  card  h6 text-success align-items-center">
+        <p class="mt-3">Resultados para: {{ resultados }}</p>
+      </div>
+  {% elif number == 0 %}
+    <div style="width:100%;" class=" shadow-sm  card  h6 text-danger align-items-center">
+      <p class="mt-3">Não há {{ tag }}</p>
+    </div>
+    
+  {% endif %}
+
+  {% if tabela is None %}
+    <div style="width:100%;" class=" shadow-sm  card  h6 text-danger align-items-center">
+      <p class="mt-3">Não há {{ tag }}</p>
+    </div>
+  {% endif %}
+{%if number > 0%}
+<div class="m-auto row">
+    <div class="col-lg-12">
+      <div  style="height: 70Vh;" class="card">
+        <div class="card-header bg-teal">
+        {% block cardTitle %}{% endblock cardTitle %}
+
+          <div class="card-tools">
+            <form method="POST" class="input-group input-group-sm" style="width: 150;">
+              {% csrf_token %}
+              <input type="input" name="inputSearch" class="form-control float-right" placeholder="Pesquisar">
+
+              <div class="input-group-append">
+                <button type="submit" name="" class="btn btn-default">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+ 
+              {% block botaoAdd %}
+              {% endblock botaoAdd %}
+            </form>
+            
+          </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0" style="height: 300px;">
+          <table class="table table-head-fixed text-nowrap">
+            <thead>
+              {% block thead %}{% endblock thead %}
+            </thead>
+            <tbody>
+              {% block tbody %}{% endblock tbody %}
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+      {%block botao%}
+      {%endblock botao%}
+    </div>
+  </div>
+  <!-- /.row -->
+{%endif%}
+{%endblock content%}
+
+{%block  scriptAdd%}
+    
+    {%block funcoes%}
+    {%endblock funcoes%}
+
+{%endblock scriptAdd%}

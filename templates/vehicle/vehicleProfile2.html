@@ -1,0 +1,171 @@
+{% extends 'BaseItems/base.html' %}
+{% load crispy_forms_tags %}
+{% block links %}
+{% endblock links %}
+
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="m-4 row">
+      <div class="mb-1 col-lg-8">
+        <div style="width: 100%; height: 100%;" class="card">
+          <div class="card-body ">
+            <h5 class="card-header card-header-color text-center mb-4">
+              {{ form.vehicle_type.value }}, {{ form.year.value }},  Chassi: {{ form.chassi.value }}
+            </h5>
+            <form method='POST'>
+              {% csrf_token %}
+              <div class=" row">
+                {% for field in form.visible_fields  %}
+                  <div class="col-lg-6">
+                    {{ field|as_crispy_field }}
+                    <datalist id="datalistOptions">
+                      {% for i in types %}
+                        <option value = {{i}}>{{i }}
+                        </option>
+                      {% endfor %}
+                    </datalist>
+                  </div>
+                {% endfor %}
+              </div>
+              <div class="card-footer text-center">
+                <button id="botaoVoltar"
+                        type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal">Voltar <i class="fa-solid fa-angle-left"></i></button>
+                <button type="submit" id="AtualizarPost" name="AtualizarPost" class="btn btn-primary">Atualizar <i class="fa-regular fa-pen-to-square"></i></button>
+                <a href="{%url 'vehicle:remove' slug %}" name="removeButton"
+                        value="{{ vehicle.chassi }}"
+                        id="removeButton"
+                        type="button"
+                        class="areSure btn btn-danger">
+                  Remover <i class="fa-regular fa-trash-can"></i>
+              </a>
+                {% if vehicle.it_location %}
+                  <button type="button" disabled href="" class="btn btn-secondary">Locado!</button>
+                {% else %}
+                  <a type="button"  href="{%url 'location:locar' slug profile  %}" class="btn btn-success">Locar <i class="fa-regular fa-circle-check"></i></a>
+                  {% endif %}
+                <button type="button"
+                        class="btn btn-warning"
+                        data-toggle="modal"
+                        data-target="#exampleModalCenter">Add Gasto <i class="fas-regular fa-dollar-sign"></i></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div style:"position:fixed;" class="mb-1  col-lg-4">
+        <div class="row">
+        <div style="width: 100%; height: 70vh" class="mb-3 overflow-auto card">
+          <div class="card-body">
+            {% include 'includeItems/carousselCards.html' %}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card">
+          <a style="text-decoration: none; color: #000;" class="text-center"
+          href="#meuCarrossel"
+          id="ButtonCaroussel"
+          role="button"
+          data-slide="next">
+          próximo 
+        </a>  
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+
+<div class="modal fade"
+     id="exampleModalCenter"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <form name="form2" action="{%url 'spent:gastoAdd' slug %}" method="POST">
+        {% csrf_token %}
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Adicionar Gasto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{spentForm.visible_fields|crispy}}
+      </div>
+      
+      <div class="modal-footer">
+        <button id="fechar" type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" name="addGasto" class="btn btn-primary">Cadastrar</button>
+      </div>
+    </form>
+    </div>
+  </div>
+
+
+</div>
+
+
+</div>
+{% endblock content %}
+{% block  scriptAdd %}
+
+  <script>
+      $(document).on('click', '.areSure', function(e){
+        var form = document.getElementById("form-this")
+        return confirm("Tem certeza que quer deletar ?")
+      });
+      {% for msg in messages%}
+      {% if msg.tags == "message-sucess" %}
+      var icon="success";
+      {% elif msg.tags == "message-error" %}
+      var icon="error"
+      {%else%}
+      var icon='warning'
+      {%endif%}
+      swal({
+       title: "{{msg}}",
+       icon: icon,
+       timer: 3000,
+       button: "ok"}).then((value) => {
+        if (icon =="error" ) {
+          $("#exampleModalCenter").modal('show');
+          $('#fechar').on('click', function(){
+
+            $('#exampleModalCenter').modal('hide'); 
+          
+          });
+
+        } else {
+        window.location="{%url 'vehicle:profile' slug %}";
+        }
+      });
+
+      {% endfor %}
+      
+
+      document.getElementById('botaoVoltar').onclick= function(){
+        swal({
+          title: "Tem certeza que deseja retornar?",
+          text: "Poderá perder dados ja digitados",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        }).then((willDelete) => {
+          if (willDelete) {
+              window.location="{%url 'vehicle:one' %}";
+          } {% load static %}
+
+        });
+      };
+  </script>
+
+{% endblock scriptAdd %}

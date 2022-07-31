@@ -1,0 +1,124 @@
+{% extends 'BaseItems/base.html' %}
+{% load crispy_forms_tags%}
+{%load static%}
+
+{% block links %}
+    <link href="{% static 'css/screenChange.css' %}" rel="stylesheet" />
+{% endblock links %}
+
+{% block pesquisa%}
+
+
+
+    
+   
+{% endblock %}
+
+{% block opcoes %}
+<div class="list-group h5 text-left list-group-flush" style="margin-top: 10%;" >
+    {%include 'includeItems/VehicleOption.html'%}
+   
+</div>
+
+{% endblock opcoes %}
+
+{% block content%}
+   
+<div class="container-fluid  ">
+ 
+  <div class="content">
+    <div class=" content-card  card">
+      <div class=" card-body ">
+        <h5 class="card-header bg-teal card-header-color text-center mb-4"><b>Cadastrar Veículo</b></h5>
+        <div class="card-text" >
+            <form method='POST'>
+              {% csrf_token %}          
+              <div class="row">          
+                  {% for field in form.visible_fields  %}
+                      
+                      <div class="col-md-4">
+
+                      {% if field.label == "Tipo de Veiculo" %}
+                      
+                        <label for="vehiclesDataList" class="form-label">Tipo de Veiculo*</label>
+                        <input class="form-control" name="vehicle_type" required list="datalistOptions" id="vehiclesDataList" placeholder="Tipo de veículo">
+                        
+                        {% if types %}
+                        <datalist id="datalistOptions">
+                          {% for i in types%}
+                          <option value={{i}}>{{i}}</option>
+                          {% endfor %}
+                        </datalist>
+                        {% endif %}
+                       
+
+                      {%elif field.label != "it_location"%}
+                        {{field|as_crispy_field}}
+                    {% endif %}
+
+                    </div>
+
+
+                      
+
+                  {% endfor %}
+              </div>
+        
+              <div class="card-footer text-center" >
+                  <button id="botaoVoltar" type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                  <button type="submit" name="CadastrarPost" class=" btn btn-primary">Cadastrar</button>
+              </div>           
+            </form> 
+      </div>
+      </div>
+    </div>
+    </div>
+   
+   
+
+</div>
+            
+
+
+   
+
+{%endblock content%}
+
+{% block  scriptAdd %}
+  <script src="{% static '/js/scripts.js' %}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static '/js/jquery.mask.min.js' %}"></script>
+  <script src="{% static '/js/scripts.js' %}"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+  <script>
+      {% for msg in messages  %}
+      {% if msg.tags == "message-sucess" %}
+      swal({
+       title: "Veiculo Cadastrado com Sucesso!!",
+       icon: "success",
+       timer: 3000,
+       button: "ok"}).then((value) => {
+        window.location="{%url 'vehicle:indexVehicle' %}";
+      });
+      {% endif %}
+      {% endfor %}
+
+      document.getElementById('botaoVoltar').onclick= function(){
+        swal({
+          title: "Tem certeza que deseja retornar?",
+          text: "Poderá perder dados ja digitados",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        }).then((willDelete) => {
+          if (willDelete) {
+              window.location="{%url 'vehicle:one' %}";
+          } else {
+            swal({title:"Continue seu cadastro", timer:1000});
+          }
+        });
+      };
+    </script>
+{% endblock scriptAdd %}

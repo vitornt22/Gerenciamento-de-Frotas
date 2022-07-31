@@ -1,0 +1,77 @@
+<!-- /.row -->
+<div class="row">
+    <div class="col-12">
+      <div  style="height: 70Vh;" class="card">
+        <div class="card-header bg-lightblue">
+        {% block cardTitle %}{% endblock cardTitle %}
+
+          <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 150;">
+              <input type="text" name="table_search" class="form-control float-right" placeholder="Pesquisar">
+
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-default">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+ 
+              {% block botaoAdd %}
+              {% endblock botaoAdd %}
+            </div>
+            
+          </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0" style="height: 300px;">
+          <table class="table table-head-fixed text-nowrap">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Inicio</th>
+                <th>Fim</th>
+                <th>Meses(R$)</th>
+                <th>Empresa</th>
+                <th>Total</th>
+                <th><th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+              {%for i in tabela%}
+                      <tr>
+                      <td>{{i.id}}</td>
+                      <td>{{i.start_location}}</td>
+                      <td>{{i.end_location}}</td>
+                      <td>{{i.number_months}} </td>
+                      <td>{{i.empresa_name}} </td>
+                      <td><span class="tag tag-success">R$ {{i.total_value}}</span></td>
+                      
+                      {%if i.can_remove is True and i.id_vehicle.slug != None %}
+                        <td><a type="button" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir">
+                          <i class="fa-solid fa-trash-can"></i>
+                        </a></td>
+                      {%else%}
+                      <td><a type="button" disabled class="disabled btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Todas as parcelas pagas, nao pode excluir">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </a></td>
+                      {%endif%}
+                     
+
+                      <td><a type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Editar">
+                          <i class="fa-solid fa-pen-to-square"></i>
+                      </a></td>
+                      </tr>   
+                   {%endfor%}
+              
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
+  <!-- /.row -->
+  
+            
+         

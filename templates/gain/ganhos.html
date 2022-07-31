@@ -1,0 +1,88 @@
+{%extends 'BaseItems/baseTabela.html'%}
+
+{% block cardTitle %}
+    <h3 class="card-title">{{tag}}</h3>
+{% endblock cardTitle %}
+
+
+{% block thead %}
+    <tr>
+        <th>Data</th>
+        <th>Ocasião</th>
+        <th>Valor(R$)</th>
+        <th><th>
+    </tr>
+{% endblock thead %}
+              
+           
+{% block tbody %}
+{%for i in tabela%}
+                      <tr>
+                      <td>{{i.date}}</td>
+                      <td>{{i.occasion}}</td>
+                      <td><span class="tag tag-success">R$ {{i.valor}}</span></td>
+                      <form method="POST">        
+                      {% csrf_token %}
+
+                      {% if i.it_paid  is True and i.can_pay is False %}
+                      <td><button type="button" disabled  name="its_Paid" value ="{{i.id}}" class="wantPay btn btn-outline-success btn-sm" data-toggle="tooltip" data-placement="top" title="Parcela Paga !">
+                        <i class="fa-solid fa-check"></i>                      </button></td>
+                      {%elif i.can_pay is True%}
+                      <td><button type="submit"  name="its_Paid" value ="{{i.id}}" class="wantPay btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Pagar !">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                      </button></td>                    
+                      {%else%}
+                      <td><button type="submit"  name="its_Paid" value ="{{i.id}}" class="disabled wantPay btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Pagar !">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                      </button></td>
+                     {%endif%}
+                     
+                     
+                    </form>
+                      </tr>   
+                   {%endfor%}
+              
+{% endblock tbody %}
+
+{%block botao%}
+<button id="voltar" class="voltar btn btn-dark" type='button'>Voltar <i class="fa-solid fa-angle-left"></i></button>
+{%endblock botao%}
+
+
+
+{%block funcoes%}
+    <script>
+
+        $(document).on('click', '.voltar', function(e){
+            {%if prev == "location:allLocations" %}
+            window.location="{% url 'location:allLocations' %}"
+            {%elif prev == "location:locations"%}
+            window.location="{%url 'location:locations' slug%}"
+            {%else%}
+            window.location="{%url 'vehicle:profile' slug%}"
+            {%endif%}
+        });
+    
+        $(document).on('click', '.wantPay', function(e){
+            var form = document.getElementById("form-this")
+            return confirm("Tem certeza que deseja adicionar parcela como PAGA ?")
+        });
+    
+        {% for msg in messages%}
+        {% if msg.tags == "message-sucess" %}
+        var icon="success";
+        {% elif msg.tags == "message-error" %}
+        var icon="error";
+        {%endif%}
+        swal({
+        title: "{{msg}}",
+        icon: icon,
+        timer: 3000,
+        button: "ok"})
+        {% endfor %}
+    </script>
+{%endblock funcoes%}
+            
+
+
+

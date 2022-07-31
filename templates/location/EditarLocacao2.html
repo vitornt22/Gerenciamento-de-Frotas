@@ -1,0 +1,78 @@
+{% extends 'BaseItems/baseEdit.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block opcoes %}
+    {%include 'includeItems/VehicleOption.html'%}
+{% endblock opcoes %}
+
+   
+{%block title%}
+<h5 class="card-header card-header-color text-center mb-4">Editar Locação de: {{vehicle.vehicle_type}}, {{vehicle.year}},  Chassi: {{vehicle.chassi}}</h5>
+{%endblock title%}
+
+       
+
+{%block formulario%}
+
+<div class="row">          
+    {% for field in form.visible_fields  %}
+        
+    <div class="col-md-4">
+        
+      {{field|as_crispy_field}}
+    
+    </div>      
+    {% endfor %}
+</div>
+
+
+{%endblock formulario%}
+            
+
+
+{%block funcoes %}
+    <script>
+
+    
+    {%if flag is False%}
+    document.getElementById('startLocationID').readOnly = true;    //to enable readonly
+    {%else%}        
+    document.getElementById('startLocationID').readOnly = false;    //to enable readonly
+    {%endif%}
+    
+
+    {% for msg in messages %}
+      {% if msg.tags == "message-sucess" %}
+      var icon= "success";
+      {% elif msg.tags == "message-error" %}
+      var icon="error";
+      {%endif%}
+
+      swal({
+       title: "{{msg}}",
+       icon: icon,
+       timer: 3000,
+       button: "ok"}).then((value) => {
+        {% if name == "Gasto"%}
+        window.location="{%url 'vehicle:spents' slug %}";
+        {% else %}
+        window.location="{%url path slug id %}";
+        {% endif %}
+
+      });
+      {%endfor%}
+
+      document.getElementById('botaoVoltar').onclick= function(){
+        
+        {%if tag2 is True%}
+        window.location="{%url prev %}";
+        {%elif tag2 is False or name == "Gasto"%}
+        window.location="{%url prev slug %}";
+        {%endif%}
+      };
+    </script>
+{% endblock funcoes%}
+      
+    

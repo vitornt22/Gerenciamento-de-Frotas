@@ -1,0 +1,84 @@
+{%extends 'BaseItems/baseTabela.html'%}
+
+{% block cardTitle %}
+    <h3 class="card-title">Gastos</h3>
+{% endblock cardTitle %}
+
+
+{% block thead %}
+    <tr>
+        <th>Data</th>
+        <th>Ocasião</th>
+        <th>Valor(R$)</th>
+        <th><th>
+    </tr>
+{% endblock thead %}
+              
+           
+{% block tbody %}
+{%for i in tabela%}
+                      <tr>
+                      <td>{{i.date}}</td>
+                      <td>{{i.occasion}}</td>
+                      <td><span class="tag tag-success">R$ {{i.valor}}</span></td>
+                      <form method="POST">        
+                      {% csrf_token %}
+
+                      
+                      <td><button type="submit"   name="removerTableButton" value = "{{i.id}}" class="areSure btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir !">
+                        <i class="fa-solid fa-trash-can"></i>  
+                        </button>                   
+                      <td>
+                        <a type="button" href="{%url 'spent:spentEdit' slug i.id %}" name="edit" value ="{{i.id}}" class="
+                          btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Editar !">
+                          <i class="fa-solid fa-pen-to-square"></i>
+                      </a>
+                    </td>
+                     
+                     
+                    </form>
+                      </tr>   
+                   {%endfor%}
+              
+{% endblock tbody %}
+
+{%block botao%}
+<button id="voltar" class="voltar btn btn-dark" type='button'>Voltar <i class="fa-solid fa-angle-left"></i></button>
+{%endblock botao%}
+
+
+
+{%block funcoes%}
+    <script>
+
+        {% for msg in messages%}
+        {% if msg.tags == "message-sucess" %}
+        var icon="success";
+        {% elif msg.tags == "message-error" %}
+        var icon="error";
+        {%endif%}
+        swal({
+         title: "{{msg}}",
+         icon: icon,
+         timer: 3000,
+         button: "ok"});
+         
+        {%endfor%}
+
+        $(document).on('click', '.areSure', function(e){
+            var form = document.getElementById("form-this")
+            return confirm("Tem certeza wue deseja deletar ?")
+        });
+    
+        $(document).on('click', '.voltar', function(e){
+            window.location="{%url 'vehicle:profile' slug  %}"
+        });
+    
+        
+         
+    </script>
+{%endblock funcoes%}
+            
+
+
+

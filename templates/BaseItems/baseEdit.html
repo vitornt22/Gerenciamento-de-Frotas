@@ -1,0 +1,57 @@
+{% extends 'BaseItems/base.html' %}
+{% load crispy_forms_tags%}
+{%load static%}
+
+{% block links %}
+{% endblock links %}
+
+{% block pesquisa%}
+
+{% endblock pesquisa %}
+
+{% block content%}
+   
+<div onload="readOnlyFunction()" class="container-fluid">
+  <div class="row">
+  <!-- left column -->
+  <div class="col-md-12">
+    <!-- general form elements -->
+    <div class="card card-teal">
+      <div class="card-header">
+        {%block cardTitle%}
+        {%endblock cardTitle%}
+      </div>
+      <!-- /.card-header -->
+      <!-- form start -->
+      <form method="POST">
+        {% csrf_token %}
+        <div class="card-body">
+          <div class="row">
+             {%block formulario%}
+             {%endblock formulario%} 
+          
+        </div>
+      </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+          <button type="button" id="botaoVoltar" class="btn bg-gray">Voltar</button>
+          <button type="submit" class="voltar btn bg-lightblue">Editar Campos</button>
+        
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+
+{%endblock content%}
+
+{% block  scriptAdd %}
+ 
+
+      {%block funcoes %}
+      {% endblock funcoes%}
+       
+{% endblock scriptAdd %}

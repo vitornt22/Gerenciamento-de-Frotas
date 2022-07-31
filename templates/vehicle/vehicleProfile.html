@@ -1,0 +1,191 @@
+{% extends 'BaseItems/base.html' %}
+{%load static%}
+{% load crispy_forms_tags %}
+
+{%block addLink%}
+  
+{%endblock addLink%}
+
+
+
+{%block content%}
+<div class="row">
+    <!-- left column -->
+    <div class="col-md-9">
+      <!-- general form elements -->
+      <div class="card card-teal">
+        <div class="card-header">
+          <h3 class="card-title">Perfil: {{vehicle.vehicle_type}} - Placa: {{vehicle.license_plate}}</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form method="POST">
+          <div class="card-body">
+            {% csrf_token %}
+              <div class=" row">
+                {% for field in form.visible_fields  %}
+                  <div class="col-lg-6">
+                    {{ field|as_crispy_field }}
+                    <datalist id="datalistOptions">
+                      {% for i in types %}
+                        <option value = {{i}}>{{i }}
+                        </option>
+                      {% endfor %}
+                    </datalist>
+                  </div>
+                {% endfor %}
+              </div>
+          </div>
+          <!-- /.card-body -->
+
+          <div class="card-footer">
+            <button id="botaoVoltar"
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal">Voltar <i class="fa-solid fa-angle-left"></i></button>
+            <button type="submit" id="AtualizarPost" name="AtualizarPost" class="btn btn-primary">Atualizar <i class="fa-regular fa-pen-to-square"></i></button>
+            <a href="{%url 'vehicle:remove' slug %}" name="removeButton"
+                value="{{ vehicle.chassi }}"
+                id="removeButton"
+                type="button"
+                class="areSure btn btn-danger"> 
+                Remover <i class="fa-regular fa-trash-can"></i>
+            </a>
+                {% if vehicle.it_location %}
+                    <button type="button" disabled href="" class="btn btn-secondary">Locado!</button>
+                {% else %}
+                    <a type="button"  href="{%url 'location:locar' slug profile  %}" class="btn btn-success">Locar <i class="fa-regular fa-circle-check"></i></a>
+                    {% endif %}
+                <button type="button"
+                        class="btn btn-warning"
+                        data-toggle="modal"
+                        data-target="#exampleModalCenter">Add Gasto <i class="fas-regular fa-dollar-sign"></i>
+                </button>
+
+        </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+
+        <!-- Profile Image -->
+        <div style="height: 96%;" class="card card-primary card-outline">
+          <div class="card-body box-profile">
+            <div class="text-center">
+              <img class="profile-user-img img-fluid img-circle"
+                   src="{%static 'dist/img/truck.jpg' %}"
+                   alt="">
+            </div>
+
+            <h3 class="profile-username text-center">{{vehicle.vehicle_type}}</h3>
+
+
+            <ul class="list-group list-group-unbordered mb-3">
+              <li class="list-group-item">
+                <a href="{%url 'gains:gains' slug %}" class="btn bg-success btn-block"><i class="pr-2 fa-solid fa-hand-holding-dollar"></i><b>Ganhos</b></a>
+            </li>
+              <li class="list-group-item">
+                <a href="{%url 'spent:spents' slug %}" class="btn bg-warning btn-block"><i class="pr-2 fa-solid fa-comments-dollar"></i><b>Gastos</b></a>
+            </li>
+              <li class="list-group-item">
+                <a href="{%url 'location:locations' slug %}" class="btn bg-lightblue btn-block"><i class="pr-2 fa-solid fa-file-signature"></i><b>Locações</b></a>
+            </li>
+            </ul>
+
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+</div>
+      <!-- /.card -->
+
+<!-- Modal -->
+
+<div class="modal fade"
+     id="exampleModalCenter"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <form name="form2" action="{%url 'spent:gastoAdd' slug %}" method="POST">
+        {% csrf_token %}
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Adicionar Gasto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{spentForm.visible_fields|crispy}}
+      </div>
+      
+      <div class="modal-footer">
+        <button id="fechar" type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" name="addGasto" class="btn btn-primary">Cadastrar Gasto</button>
+      </div>
+    </form>
+    </div>
+  </div>
+
+  
+{%endblock content%}
+
+{% block  scriptAdd %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+  <script>
+      $(document).on('click', '.areSure', function(e){
+        var form = document.getElementById("form-this")
+        return confirm("Tem certeza que quer deletar ?")
+      });
+      {% for msg in messages%}
+      {% if msg.tags == "message-sucess" %}
+      var icon="success";
+      {% elif msg.tags == "message-error" %}
+      var icon="error"
+      {%else%}
+      var icon='warning'
+      {%endif%}
+      swal({
+       title: "{{msg}}",
+       icon: icon,
+       timer: 3000,
+       button: "ok"}).then((value) => {
+        if (icon =="error" ) {
+          $("#exampleModalCenter").modal('show');
+          $('#fechar').on('click', function(){
+
+            $('#exampleModalCenter').modal('hide'); 
+          
+          });
+
+        } else {
+        window.location="{%url 'vehicle:profile' slug %}";
+        }
+      });
+
+      {% endfor %}
+      
+
+      document.getElementById('botaoVoltar').onclick= function(){
+        swal({
+          title: "Tem certeza que deseja retornar?",
+          text: "Poderá perder dados ja digitados",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        }).then((willDelete) => {
+          if (willDelete) {
+              window.location="{%url 'vehicle:one' %}";
+          } {% load static %}
+
+        });
+      };
+  </script>
+
+{% endblock scriptAdd %}

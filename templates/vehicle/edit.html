@@ -1,0 +1,121 @@
+{% extends 'BaseItems/base.html' %}
+{% load crispy_forms_tags%}
+{%load static%}
+
+{% block links %}
+    <link href="{% static 'css/screenChange.css' %}" rel="stylesheet" />
+{% endblock links %}
+
+{% block pesquisa%}
+
+
+
+    
+   
+{% endblock %}
+
+{% block opcoes %}
+<div class="list-group h5 text-left list-group-flush" style="margin-top: 10%;" >
+    <a class="list-group-item  active list-group-item-light list-group-item-light p-3" href="{%url 'vehicle:one' %}">Veiculos</a>
+    <a class="list-group-item  p-3" href="#!">Locações</a>
+    <a class="list-group-item  p-3" href="#!">Relatórios</a>
+    <a class="list-group-item  p-3" href="#!">Perfil</a>
+   
+</div>
+
+{% endblock opcoes %}
+
+{% block content%}
+   
+<div class="container-fluid">
+ 
+  
+    <div class="content">
+    <div class=" content-card  card">
+      <div class="card-body ">
+        <h5 class="card-header bg-teal card-header-color text-center mb-4">Editar Dados de: {{form.vehicle_type.value}}, {{form.year.value}},  Chassi: {{form.chassi.value}}</h5>
+        <div class="card-text" >
+            <form  method='POST'>
+              {% csrf_token %} 
+         
+              <div class="row">          
+                  {% for field in form.visible_fields  %}
+                      
+                    {% if field.label == "Marca" or field.label == "it_location"%}
+                      <div class="col-md-2">
+                    {%else%}
+                      <div class="col-md-4">
+                    {%endif%}
+                        {{field|as_crispy_field}}
+
+                
+                    <datalist id="datalistOptions">
+                        {% for i in types%}
+                        <option value={{i}}>{{i}}</option>
+                        {% endfor %}
+                    </datalist>
+
+                    </div>
+                  {% endfor %}
+              </div>
+        
+              <div class="card-footer text-center" >
+                  <button id="botaoVoltar" type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                  <button type="submit" name="CadastrarPost" class=" btn btn-primary">Atualizar Campos</button>
+              </div>           
+            </form> 
+      </div>
+      </div>
+    </div>
+  </div>
+    
+   
+   
+
+</div>
+            
+
+
+   
+
+{%endblock content%}
+
+{% block  scriptAdd %}
+  <script src="{% static '/js/scripts.js' %}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static '/js/jquery.mask.min.js' %}"></script>
+  <script src="{% static '/js/scripts.js' %}"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+  <script>
+      {% for msg in messages%}
+      {% if msg.tags == "message-sucess" %}
+      
+      swal({
+       title: "Dados atualizados com sucesso!",
+       icon: "success",
+       timer: 3000,
+       button: "ok"}).then((value) => {
+        window.location="{%url 'vehicle:edit' slug %}";
+      });
+      {% endif %}
+      {% endfor %}
+
+      document.getElementById('botaoVoltar').onclick= function(){
+        swal({
+          title: "Tem certeza que deseja retornar?",
+          text: "Poderá perder dados ja digitados",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        }).then((willDelete) => {
+          if (willDelete) {
+              window.location="{%url 'vehicle:one' %}";
+          } else {
+            swal({title:"Pode alterar seus dados ", timer:1000});
+          }
+        });
+      };
+    </script>
+{% endblock scriptAdd %}

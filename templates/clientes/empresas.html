@@ -1,0 +1,86 @@
+{%extends 'BaseItems/baseTabela.html'%}
+
+{%block listar%}
+<li class="nav-item">
+  <a name="" class="nav-link" href="{%url 'clientCompany:register' -10  %}" data-toggle="tooltip"
+  data-placement="top" title="Adicionar Empresa">
+      <!--Botao Adicionar empresa-->
+      <i class="fa-solid fa-plus"></i>
+    </a>
+  </li>
+{%endblock listar%}
+
+{% block cardTitle %}
+    <h3 class="card-title">{{tag}}</h3>
+{% endblock cardTitle %}
+
+
+{% block thead %}
+    <tr>
+        <th>Nome</th>
+        <th>CNPJ</th>
+        <th>Email</th>
+        <th>Contato</th>
+        <th></th>
+        <th></th>
+    </tr>
+{% endblock thead %}
+              
+           
+{% block tbody %}
+{%for i in tabela%}
+        <tr>
+          <td> {{i.name}} </td>
+          <td> {{i.cnpj}} </td>
+          <td> {{i.email}} </td>
+          <td> {{i.contact}} </td>
+          <td>
+            <a type="button"   href="{%url 'clientCompany:remove' i.slug %}" name="remover" value ="{{i.id}}" class="areSure btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir">
+              <i class="fa-solid fa-trash-can"></i>  
+            </a>
+          </td>
+          <td>
+            <a href="{%url 'clientCompany:edit' i.slug%}" name="edit" value ="{{i.id}}" class=" btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Editar">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+         </td>                    
+        
+        
+        </tr>   
+      {%endfor%}
+
+{% endblock tbody %}
+
+
+
+
+
+{%block funcoes%}
+    <script>
+
+
+  
+    
+      {% for msg in messages%}
+      {% if msg.tags == "message-sucess" %}
+      var icon="success";
+      {% elif msg.tags == "message-warning" %}
+      var icon="warning";
+      {%endif%}
+      swal({
+       title: "{{msg}}",
+       icon: icon,
+       timer: 3000,
+       button: "ok"})
+       {%endfor%}
+
+        $(document).on('click', '.areSure', function(e){
+          var form = document.getElementById("form-this")
+          return confirm("Tem certeza wue deseja deletar ?")
+      });
+    </script>
+{%endblock funcoes%}
+            
+
+
+

@@ -1,0 +1,53 @@
+{% extends 'BaseItems/baseEdit.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+   
+{%block cardTitle%}
+<h3 class="card-title">Editar gasto</h3>
+{%endblock cardTitle%}
+
+       
+
+{%block formulario%}
+
+<div class="row">          
+    {% for field in form.visible_fields  %}
+        
+    <div class="col-md-4">
+      {{field|as_crispy_field}}
+    </div>      
+    {% endfor %}
+</div>
+{%endblock formulario%}
+            
+
+
+{%block funcoes %}
+    <script>
+    
+
+    {% for msg in messages %}
+      {% if msg.tags == "message-sucess" %}
+      var icon= "success";
+      {% elif msg.tags == "message-error" %}
+      var icon="error";
+      {%endif%}
+
+      swal({
+       title: "{{msg}}",
+       icon: icon,
+       timer: 3000,
+       button: "ok"}).then((value) => {
+        window.location="{%url 'spent:spents' slug %}";
+      });
+      {%endfor%}
+
+      document.getElementById('botaoVoltar').onclick= function(){
+        window.location="{%url 'spent:spents' slug %}";
+      };
+    </script>
+{% endblock funcoes%}
+      
+    

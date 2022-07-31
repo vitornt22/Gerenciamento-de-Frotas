@@ -1,0 +1,124 @@
+{% extends 'BaseItems/base.html' %}
+{% load crispy_forms_tags%}
+{%load static%}
+
+{% block links %}
+    <link href="{% static 'css/screenChange.css' %}" rel="stylesheet" />
+{% endblock links %}
+
+{% block pesquisa%}
+
+
+
+    
+   
+{% endblock %}
+
+{% block opcoes %}
+    {%include 'includeItems/VehicleOption.html' %}
+{% endblock opcoes %}
+
+{% block content%}
+   
+<div class="container-fluid">
+ 
+  
+    <div class="content">
+    <div class="top-1 content-card  card">
+      <div class=" card-body ">
+        <h5 class="card-header card-header-color text-center mb-4">Cadastrar Nova Empresa</h5>
+        <div class=" card-text" >
+            <form  method='POST'>
+              {% csrf_token %} 
+         
+              <div class="row">          
+                  {% for field in form.visible_fields  %}
+                      
+                    {% if field is form.number%}
+                    <div class="col-md-2">
+                    {%elif field is form.zip_code or field is form.district%}
+                    <div class="col-md-3">
+                    {%else%}
+                    <div class="col-md-4">
+                    {%endif%}
+                    
+                        {{field|as_crispy_field}}
+
+                    </div>
+                  {% endfor %}
+                  <div class="card-footer text-center" >
+                    <button id="botaoVoltar" type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                    <button type="submit" name="CadastrarEmpresa" class=" btn btn-primary">Cadastrar Empresa</button>
+                    
+                  </div>
+
+                  </form>
+             
+                </div>
+        
+                        
+            
+      </div>
+      </div>
+    </div>
+  </div>
+    
+   
+   
+
+</div>
+            
+
+
+   
+
+{%endblock content%}
+
+{% block  scriptAdd %}
+  <script src="{% static '/js/scripts.js' %}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static '/js/jquery.mask.min.js' %}"></script>
+  <script src="{% static '/js/scripts.js' %}"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+  <script>
+      {% for msg in messages  %}
+      swal({  
+       title: "Empresa Cadastrada com Sucesso!!",
+       icon: "success",
+       timer: 3000,
+       button: "ok"}).then((value) => {
+        {%if previous is not None%}
+        window.location="{% url 'location:locar' previous profile %}"
+        {%else%}
+        window.location="{%url 'clientCompany:empresas' %}"
+        {%endif%}
+
+      });
+      {% endfor %}
+
+      document.getElementById('botaoVoltar').onclick= function(){
+        swal({
+          title: "Tem certeza que deseja retornar?",
+          text: "Poderá perder dados ja digitados",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        }).then((willDelete) => {
+          if (willDelete) {
+              {%if previous != None%}
+              window.location="{%url 'location:locar' previous profile %}";
+              {%else%}
+              window.location="{% url 'clientCompany:empresas'%}"
+              {%endif%}
+            } else {
+            swal({title:"Pode alterar seus dados ", timer:1000});
+          }
+        });
+      };
+    </script>
+    
+    </script>
+    
+{% endblock scriptAdd %}
