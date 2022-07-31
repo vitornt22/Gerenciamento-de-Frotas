@@ -176,5 +176,3 @@ DATABASE_OPTIONS = {'timeout': 30}
 # Mask Date
 USE_L1ON = True
 DATE_INPUT_FORMATS = ('%d/%m/%Y',)
-
-django_on_heroku.settings(locals())

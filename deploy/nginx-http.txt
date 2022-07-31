@@ -5,7 +5,7 @@
 # /root/app_repo = Replace with the path to the folder for the project
 # /root/app_repo/static = Replace with the path to the folder for static files
 # /root/app_repo/media = Replace with the path to the folder for media files
-# optar = Replace with your unix socket name
+# optar.socket = Replace with your unix socket name
 # 
 # Set timezone
 # List - timedatectl list-timezones
