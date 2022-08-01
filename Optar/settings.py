@@ -32,7 +32,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'INSECURE')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True if os.environ.get('DEBUG') == 1 else False
+#DEBUG = True if os.environ.get('DEBUG') == 1 else False
+DEBUG = False
+
 
 ALLOWED_HOSTS = ['*']
 
@@ -90,7 +92,20 @@ WSGI_APPLICATION = 'Optar.wsgi.application'
 
 load_dotenv(find_dotenv())
 # DATABASES DOTENV
+# USANDO ESTE BANCO
 
+DATABASES = {
+    'default': {
+        'ENGINE': "django.db.backends.postgresql",
+        'NAME': "optar",
+        'USER': "vitor",
+        'PASSWORD': "vitornt22",
+        'HOST': "127.0.0.1",
+        'PORT': "5432",
+    }
+}
+
+'''
 DATABASES = {
     'default': {
         'ENGINE': os.environ.get('DATABASE_ENGINE'),
@@ -101,7 +116,7 @@ DATABASES = {
         'PORT': os.environ.get('DATABASE_PORT'),
     }
 }
-
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
