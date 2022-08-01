@@ -1,0 +1,1378 @@
+[2022-07-31 21:05:01 +0000] [366] [DEBUG] GET /
+[2022-07-31 21:39:49 +0000] [366] [DEBUG] GET /
+[2022-07-31 21:40:10 +0000] [361] [INFO] Worker exiting (pid: 361)
+[2022-07-31 21:40:10 +0000] [365] [INFO] Worker exiting (pid: 365)
+[2022-07-31 21:40:10 +0000] [363] [INFO] Worker exiting (pid: 363)
+[2022-07-31 21:40:10 +0000] [362] [INFO] Worker exiting (pid: 362)
+[2022-07-31 21:40:10 +0000] [364] [INFO] Worker exiting (pid: 364)
+[2022-07-31 21:40:10 +0000] [366] [INFO] Worker exiting (pid: 366)
+[2022-07-31 18:40:10 -0300] [2127] [DEBUG] Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['unix:/run/optar.socket']
+  backlog: 2048
+  workers: 6
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /root/app_repo
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /root/app_repo/gunicorn-error-log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: True
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: Optar.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f7c677dbee0>
+  on_reload: <function OnReload.on_reload at 0x7f7c66dd7040>
+  when_ready: <function WhenReady.when_ready at 0x7f7c66dd7160>
+  pre_fork: <function Prefork.pre_fork at 0x7f7c66dd7280>
+  post_fork: <function Postfork.post_fork at 0x7f7c66dd73a0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f7c66dd74c0>
+  worker_int: <function WorkerInt.worker_int at 0x7f7c66dd75e0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f7c66dd7700>
+  pre_exec: <function PreExec.pre_exec at 0x7f7c66dd7820>
+  pre_request: <function PreRequest.pre_request at 0x7f7c66dd7940>
+  post_request: <function PostRequest.post_request at 0x7f7c66dd79d0>
+  child_exit: <function ChildExit.child_exit at 0x7f7c66dd7af0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f7c66dd7c10>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f7c66dd7d30>
+  on_exit: <function OnExit.on_exit at 0x7f7c66dd7e50>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-07-31 18:40:10 -0300] [2127] [INFO] Starting gunicorn 20.1.0
+[2022-07-31 18:40:10 -0300] [2127] [DEBUG] Arbiter booted
+[2022-07-31 18:40:10 -0300] [2127] [INFO] Listening at: unix:/run/optar.socket (2127)
+[2022-07-31 18:40:10 -0300] [2127] [INFO] Using worker: sync
+[2022-07-31 18:40:10 -0300] [2128] [INFO] Booting worker with pid: 2128
+[2022-07-31 18:40:10 -0300] [2129] [INFO] Booting worker with pid: 2129
+[2022-07-31 18:40:10 -0300] [2130] [INFO] Booting worker with pid: 2130
+[2022-07-31 18:40:10 -0300] [2131] [INFO] Booting worker with pid: 2131
+[2022-07-31 18:40:10 -0300] [2132] [INFO] Booting worker with pid: 2132
+[2022-07-31 18:40:10 -0300] [2133] [INFO] Booting worker with pid: 2133
+[2022-07-31 18:40:10 -0300] [2127] [DEBUG] 6 workers
+[2022-07-31 18:40:15 -0300] [2127] [INFO] Handling signal: term
+[2022-07-31 21:40:15 +0000] [2128] [INFO] Worker exiting (pid: 2128)
+[2022-07-31 21:40:15 +0000] [2129] [INFO] Worker exiting (pid: 2129)
+[2022-07-31 21:40:15 +0000] [2130] [INFO] Worker exiting (pid: 2130)
+[2022-07-31 21:40:15 +0000] [2131] [INFO] Worker exiting (pid: 2131)
+[2022-07-31 21:40:15 +0000] [2132] [INFO] Worker exiting (pid: 2132)
+[2022-07-31 21:40:15 +0000] [2133] [INFO] Worker exiting (pid: 2133)
+[2022-07-31 18:40:16 -0300] [2127] [INFO] Shutting down: Master
+[2022-07-31 18:40:16 -0300] [2138] [DEBUG] Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['unix:/run/optar.socket']
+  backlog: 2048
+  workers: 6
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /root/app_repo
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /root/app_repo/gunicorn-error-log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: True
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: Optar.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f56e891eee0>
+  on_reload: <function OnReload.on_reload at 0x7f56e7f1a040>
+  when_ready: <function WhenReady.when_ready at 0x7f56e7f1a160>
+  pre_fork: <function Prefork.pre_fork at 0x7f56e7f1a280>
+  post_fork: <function Postfork.post_fork at 0x7f56e7f1a3a0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f56e7f1a4c0>
+  worker_int: <function WorkerInt.worker_int at 0x7f56e7f1a5e0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f56e7f1a700>
+  pre_exec: <function PreExec.pre_exec at 0x7f56e7f1a820>
+  pre_request: <function PreRequest.pre_request at 0x7f56e7f1a940>
+  post_request: <function PostRequest.post_request at 0x7f56e7f1a9d0>
+  child_exit: <function ChildExit.child_exit at 0x7f56e7f1aaf0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f56e7f1ac10>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f56e7f1ad30>
+  on_exit: <function OnExit.on_exit at 0x7f56e7f1ae50>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-07-31 18:40:16 -0300] [2138] [INFO] Starting gunicorn 20.1.0
+[2022-07-31 18:40:16 -0300] [2138] [DEBUG] Arbiter booted
+[2022-07-31 18:40:16 -0300] [2138] [INFO] Listening at: unix:/run/optar.socket (2138)
+[2022-07-31 18:40:16 -0300] [2138] [INFO] Using worker: sync
+[2022-07-31 18:40:16 -0300] [2139] [INFO] Booting worker with pid: 2139
+[2022-07-31 18:40:16 -0300] [2140] [INFO] Booting worker with pid: 2140
+[2022-07-31 18:40:16 -0300] [2141] [INFO] Booting worker with pid: 2141
+[2022-07-31 18:40:16 -0300] [2142] [INFO] Booting worker with pid: 2142
+[2022-07-31 18:40:17 -0300] [2143] [INFO] Booting worker with pid: 2143
+[2022-07-31 18:40:17 -0300] [2144] [INFO] Booting worker with pid: 2144
+[2022-07-31 18:40:17 -0300] [2138] [DEBUG] 6 workers
+[2022-07-31 18:40:19 -0300] [2138] [INFO] Handling signal: term
+[2022-07-31 21:40:19 +0000] [2139] [INFO] Worker exiting (pid: 2139)
+[2022-07-31 21:40:19 +0000] [2140] [INFO] Worker exiting (pid: 2140)
+[2022-07-31 21:40:19 +0000] [2141] [INFO] Worker exiting (pid: 2141)
+[2022-07-31 21:40:19 +0000] [2142] [INFO] Worker exiting (pid: 2142)
+[2022-07-31 21:40:19 +0000] [2143] [INFO] Worker exiting (pid: 2143)
+[2022-07-31 21:40:19 +0000] [2144] [INFO] Worker exiting (pid: 2144)
+[2022-07-31 18:40:20 -0300] [2138] [INFO] Shutting down: Master
+[2022-07-31 18:40:21 -0300] [2149] [DEBUG] Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['unix:/run/optar.socket']
+  backlog: 2048
+  workers: 6
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /root/app_repo
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /root/app_repo/gunicorn-error-log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: True
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: Optar.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f33e084dee0>
+  on_reload: <function OnReload.on_reload at 0x7f33dfe49040>
+  when_ready: <function WhenReady.when_ready at 0x7f33dfe49160>
+  pre_fork: <function Prefork.pre_fork at 0x7f33dfe49280>
+  post_fork: <function Postfork.post_fork at 0x7f33dfe493a0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f33dfe494c0>
+  worker_int: <function WorkerInt.worker_int at 0x7f33dfe495e0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f33dfe49700>
+  pre_exec: <function PreExec.pre_exec at 0x7f33dfe49820>
+  pre_request: <function PreRequest.pre_request at 0x7f33dfe49940>
+  post_request: <function PostRequest.post_request at 0x7f33dfe499d0>
+  child_exit: <function ChildExit.child_exit at 0x7f33dfe49af0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f33dfe49c10>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f33dfe49d30>
+  on_exit: <function OnExit.on_exit at 0x7f33dfe49e50>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-07-31 18:40:21 -0300] [2149] [INFO] Starting gunicorn 20.1.0
+[2022-07-31 18:40:21 -0300] [2149] [DEBUG] Arbiter booted
+[2022-07-31 18:40:21 -0300] [2149] [INFO] Listening at: unix:/run/optar.socket (2149)
+[2022-07-31 18:40:21 -0300] [2149] [INFO] Using worker: sync
+[2022-07-31 18:40:21 -0300] [2150] [INFO] Booting worker with pid: 2150
+[2022-07-31 18:40:21 -0300] [2151] [INFO] Booting worker with pid: 2151
+[2022-07-31 18:40:21 -0300] [2152] [INFO] Booting worker with pid: 2152
+[2022-07-31 18:40:21 -0300] [2153] [INFO] Booting worker with pid: 2153
+[2022-07-31 18:40:22 -0300] [2154] [INFO] Booting worker with pid: 2154
+[2022-07-31 18:40:22 -0300] [2155] [INFO] Booting worker with pid: 2155
+[2022-07-31 18:40:22 -0300] [2149] [DEBUG] 6 workers
+[2022-07-31 22:53:37 +0000] [2155] [INFO] Worker exiting (pid: 2155)
+[2022-07-31 22:53:37 +0000] [2153] [INFO] Worker exiting (pid: 2153)
+[2022-07-31 22:53:37 +0000] [2154] [INFO] Worker exiting (pid: 2154)
+[2022-07-31 22:53:37 +0000] [2152] [INFO] Worker exiting (pid: 2152)
+[2022-07-31 22:53:37 +0000] [2151] [INFO] Worker exiting (pid: 2151)
+[2022-07-31 19:53:37 -0300] [2149] [INFO] Handling signal: term
+[2022-07-31 22:53:37 +0000] [2150] [INFO] Worker exiting (pid: 2150)
+[2022-07-31 19:53:37 -0300] [2149] [WARNING] Worker with pid 2151 was terminated due to signal 15
+[2022-07-31 19:53:37 -0300] [2149] [WARNING] Worker with pid 2152 was terminated due to signal 15
+[2022-07-31 19:53:37 -0300] [2149] [WARNING] Worker with pid 2155 was terminated due to signal 15
+[2022-07-31 19:53:37 -0300] [2149] [WARNING] Worker with pid 2154 was terminated due to signal 15
+[2022-07-31 19:53:37 -0300] [2149] [WARNING] Worker with pid 2153 was terminated due to signal 15
+[2022-07-31 19:53:37 -0300] [2149] [INFO] Shutting down: Master
+[2022-07-31 19:53:37 -0300] [2656] [DEBUG] Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['unix:/run/optar.socket']
+  backlog: 2048
+  workers: 6
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /root/app_repo
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /root/app_repo/gunicorn-error-log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: True
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: Optar.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7ffa21a19ee0>
+  on_reload: <function OnReload.on_reload at 0x7ffa21015040>
+  when_ready: <function WhenReady.when_ready at 0x7ffa21015160>
+  pre_fork: <function Prefork.pre_fork at 0x7ffa21015280>
+  post_fork: <function Postfork.post_fork at 0x7ffa210153a0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7ffa210154c0>
+  worker_int: <function WorkerInt.worker_int at 0x7ffa210155e0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7ffa21015700>
+  pre_exec: <function PreExec.pre_exec at 0x7ffa21015820>
+  pre_request: <function PreRequest.pre_request at 0x7ffa21015940>
+  post_request: <function PostRequest.post_request at 0x7ffa210159d0>
+  child_exit: <function ChildExit.child_exit at 0x7ffa21015af0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7ffa21015c10>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7ffa21015d30>
+  on_exit: <function OnExit.on_exit at 0x7ffa21015e50>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-07-31 19:53:37 -0300] [2656] [INFO] Starting gunicorn 20.1.0
+[2022-07-31 19:53:37 -0300] [2656] [DEBUG] Arbiter booted
+[2022-07-31 19:53:37 -0300] [2656] [INFO] Listening at: unix:/run/optar.socket (2656)
+[2022-07-31 19:53:37 -0300] [2656] [INFO] Using worker: sync
+[2022-07-31 19:53:37 -0300] [2657] [INFO] Booting worker with pid: 2657
+[2022-07-31 19:53:37 -0300] [2658] [INFO] Booting worker with pid: 2658
+[2022-07-31 19:53:37 -0300] [2659] [INFO] Booting worker with pid: 2659
+[2022-07-31 19:53:37 -0300] [2660] [INFO] Booting worker with pid: 2660
+[2022-07-31 19:53:37 -0300] [2661] [INFO] Booting worker with pid: 2661
+[2022-07-31 19:53:37 -0300] [2662] [INFO] Booting worker with pid: 2662
+[2022-07-31 19:53:38 -0300] [2656] [DEBUG] 6 workers
+[2022-07-31 22:54:55 +0000] [2661] [DEBUG] GET /
+ - - [31/Jul/2022:22:54:55 +0000] "GET / HTTP/1.1" 200 3303 "-" "curl/7.58.0"
+[2022-07-31 22:55:38 +0000] [2661] [INFO] Worker exiting (pid: 2661)
+[2022-07-31 22:55:38 +0000] [2662] [INFO] Worker exiting (pid: 2662)
+[2022-07-31 22:55:38 +0000] [2660] [INFO] Worker exiting (pid: 2660)
+[2022-07-31 22:55:38 +0000] [2659] [INFO] Worker exiting (pid: 2659)
+[2022-07-31 22:55:38 +0000] [2658] [INFO] Worker exiting (pid: 2658)
+[2022-07-31 22:55:38 +0000] [2657] [INFO] Worker exiting (pid: 2657)
+[2022-07-31 19:55:38 -0300] [2656] [INFO] Handling signal: term
+[2022-07-31 19:55:38 -0300] [2656] [WARNING] Worker with pid 2657 was terminated due to signal 15
+[2022-07-31 19:55:38 -0300] [2656] [WARNING] Worker with pid 2658 was terminated due to signal 15
+[2022-07-31 19:55:38 -0300] [2656] [WARNING] Worker with pid 2661 was terminated due to signal 15
+[2022-07-31 19:55:38 -0300] [2656] [WARNING] Worker with pid 2662 was terminated due to signal 15
+[2022-07-31 19:55:38 -0300] [2656] [WARNING] Worker with pid 2660 was terminated due to signal 15
+[2022-07-31 19:55:38 -0300] [2656] [WARNING] Worker with pid 2659 was terminated due to signal 15
+[2022-07-31 19:55:38 -0300] [2656] [INFO] Shutting down: Master
+[2022-07-31 19:55:38 -0300] [2702] [DEBUG] Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['unix:/run/optar.socket']
+  backlog: 2048
+  workers: 6
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /root/app_repo
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /root/app_repo/gunicorn-error-log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: True
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: Optar.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fb7884c6ee0>
+  on_reload: <function OnReload.on_reload at 0x7fb787ac2040>
+  when_ready: <function WhenReady.when_ready at 0x7fb787ac2160>
+  pre_fork: <function Prefork.pre_fork at 0x7fb787ac2280>
+  post_fork: <function Postfork.post_fork at 0x7fb787ac23a0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fb787ac24c0>
+  worker_int: <function WorkerInt.worker_int at 0x7fb787ac25e0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fb787ac2700>
+  pre_exec: <function PreExec.pre_exec at 0x7fb787ac2820>
+  pre_request: <function PreRequest.pre_request at 0x7fb787ac2940>
+  post_request: <function PostRequest.post_request at 0x7fb787ac29d0>
+  child_exit: <function ChildExit.child_exit at 0x7fb787ac2af0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fb787ac2c10>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fb787ac2d30>
+  on_exit: <function OnExit.on_exit at 0x7fb787ac2e50>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-07-31 19:55:38 -0300] [2702] [INFO] Starting gunicorn 20.1.0
+[2022-07-31 19:55:38 -0300] [2702] [DEBUG] Arbiter booted
+[2022-07-31 19:55:38 -0300] [2702] [INFO] Listening at: unix:/run/optar.socket (2702)
+[2022-07-31 19:55:38 -0300] [2702] [INFO] Using worker: sync
+[2022-07-31 19:55:38 -0300] [2703] [INFO] Booting worker with pid: 2703
+[2022-07-31 19:55:38 -0300] [2704] [INFO] Booting worker with pid: 2704
+[2022-07-31 19:55:39 -0300] [2705] [INFO] Booting worker with pid: 2705
+[2022-07-31 19:55:39 -0300] [2706] [INFO] Booting worker with pid: 2706
+[2022-07-31 19:55:39 -0300] [2707] [INFO] Booting worker with pid: 2707
+[2022-07-31 19:55:39 -0300] [2708] [INFO] Booting worker with pid: 2708
+[2022-07-31 19:55:39 -0300] [2702] [DEBUG] 6 workers
+[2022-07-31 22:10:17 -0300] [2702] [INFO] Handling signal: term
+[2022-08-01 01:10:17 +0000] [2707] [INFO] Worker exiting (pid: 2707)
+[2022-08-01 01:10:17 +0000] [2706] [INFO] Worker exiting (pid: 2706)
+[2022-08-01 01:10:17 +0000] [2704] [INFO] Worker exiting (pid: 2704)
+[2022-08-01 01:10:17 +0000] [2708] [INFO] Worker exiting (pid: 2708)
+[2022-08-01 01:10:17 +0000] [2703] [INFO] Worker exiting (pid: 2703)
+[2022-08-01 01:10:17 +0000] [2705] [INFO] Worker exiting (pid: 2705)
+[2022-07-31 22:10:18 -0300] [2702] [INFO] Shutting down: Master
+[2022-07-31 22:10:18 -0300] [3233] [DEBUG] Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['unix:/run/optar.socket']
+  backlog: 2048
+  workers: 6
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /root/app_repo
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /root/app_repo/gunicorn-error-log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: True
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: Optar.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f9911b64ee0>
+  on_reload: <function OnReload.on_reload at 0x7f9911160040>
+  when_ready: <function WhenReady.when_ready at 0x7f9911160160>
+  pre_fork: <function Prefork.pre_fork at 0x7f9911160280>
+  post_fork: <function Postfork.post_fork at 0x7f99111603a0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f99111604c0>
+  worker_int: <function WorkerInt.worker_int at 0x7f99111605e0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f9911160700>
+  pre_exec: <function PreExec.pre_exec at 0x7f9911160820>
+  pre_request: <function PreRequest.pre_request at 0x7f9911160940>
+  post_request: <function PostRequest.post_request at 0x7f99111609d0>
+  child_exit: <function ChildExit.child_exit at 0x7f9911160af0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f9911160c10>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f9911160d30>
+  on_exit: <function OnExit.on_exit at 0x7f9911160e50>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-07-31 22:10:18 -0300] [3233] [INFO] Starting gunicorn 20.1.0
+[2022-07-31 22:10:18 -0300] [3233] [DEBUG] Arbiter booted
+[2022-07-31 22:10:18 -0300] [3233] [INFO] Listening at: unix:/run/optar.socket (3233)
+[2022-07-31 22:10:18 -0300] [3233] [INFO] Using worker: sync
+[2022-07-31 22:10:18 -0300] [3234] [INFO] Booting worker with pid: 3234
+[2022-07-31 22:10:18 -0300] [3235] [INFO] Booting worker with pid: 3235
+[2022-07-31 22:10:18 -0300] [3236] [INFO] Booting worker with pid: 3236
+[2022-07-31 22:10:18 -0300] [3237] [INFO] Booting worker with pid: 3237
+[2022-07-31 22:10:18 -0300] [3238] [INFO] Booting worker with pid: 3238
+[2022-07-31 22:10:18 -0300] [3233] [DEBUG] 6 workers
+[2022-07-31 22:10:18 -0300] [3239] [INFO] Booting worker with pid: 3239
+[2022-08-01 01:11:24 +0000] [3234] [INFO] Worker exiting (pid: 3234)
+[2022-08-01 01:11:24 +0000] [3236] [INFO] Worker exiting (pid: 3236)
+[2022-08-01 01:11:24 +0000] [3235] [INFO] Worker exiting (pid: 3235)
+[2022-08-01 01:11:24 +0000] [3237] [INFO] Worker exiting (pid: 3237)
+[2022-08-01 01:11:24 +0000] [3238] [INFO] Worker exiting (pid: 3238)
+[2022-07-31 22:11:24 -0300] [3233] [INFO] Handling signal: term
+[2022-08-01 01:11:24 +0000] [3239] [INFO] Worker exiting (pid: 3239)
+[2022-07-31 22:11:24 -0300] [3233] [WARNING] Worker with pid 3238 was terminated due to signal 15
+[2022-07-31 22:11:24 -0300] [3233] [WARNING] Worker with pid 3234 was terminated due to signal 15
+[2022-07-31 22:11:24 -0300] [3233] [WARNING] Worker with pid 3235 was terminated due to signal 15
+[2022-07-31 22:11:24 -0300] [3233] [WARNING] Worker with pid 3237 was terminated due to signal 15
+[2022-07-31 22:11:24 -0300] [3233] [WARNING] Worker with pid 3236 was terminated due to signal 15
+[2022-07-31 22:11:24 -0300] [3233] [INFO] Shutting down: Master
+[2022-07-31 22:11:24 -0300] [3252] [DEBUG] Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['unix:/run/optar.socket']
+  backlog: 2048
+  workers: 6
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /root/app_repo
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /root/app_repo/gunicorn-error-log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: True
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: Optar.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7ff9e1b63ee0>
+  on_reload: <function OnReload.on_reload at 0x7ff9e115f040>
+  when_ready: <function WhenReady.when_ready at 0x7ff9e115f160>
+  pre_fork: <function Prefork.pre_fork at 0x7ff9e115f280>
+  post_fork: <function Postfork.post_fork at 0x7ff9e115f3a0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7ff9e115f4c0>
+  worker_int: <function WorkerInt.worker_int at 0x7ff9e115f5e0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7ff9e115f700>
+  pre_exec: <function PreExec.pre_exec at 0x7ff9e115f820>
+  pre_request: <function PreRequest.pre_request at 0x7ff9e115f940>
+  post_request: <function PostRequest.post_request at 0x7ff9e115f9d0>
+  child_exit: <function ChildExit.child_exit at 0x7ff9e115faf0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7ff9e115fc10>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7ff9e115fd30>
+  on_exit: <function OnExit.on_exit at 0x7ff9e115fe50>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-07-31 22:11:24 -0300] [3252] [INFO] Starting gunicorn 20.1.0
+[2022-07-31 22:11:24 -0300] [3252] [DEBUG] Arbiter booted
+[2022-07-31 22:11:24 -0300] [3252] [INFO] Listening at: unix:/run/optar.socket (3252)
+[2022-07-31 22:11:24 -0300] [3252] [INFO] Using worker: sync
+[2022-07-31 22:11:24 -0300] [3253] [INFO] Booting worker with pid: 3253
+[2022-07-31 22:11:24 -0300] [3254] [INFO] Booting worker with pid: 3254
+[2022-07-31 22:11:24 -0300] [3255] [INFO] Booting worker with pid: 3255
+[2022-07-31 22:11:24 -0300] [3257] [INFO] Booting worker with pid: 3257
+[2022-07-31 22:11:24 -0300] [3256] [INFO] Booting worker with pid: 3256
+[2022-07-31 22:11:24 -0300] [3258] [INFO] Booting worker with pid: 3258
+[2022-07-31 22:11:24 -0300] [3252] [DEBUG] 6 workers
+[2022-07-31 22:11:26 -0300] [3252] [INFO] Handling signal: term
+[2022-08-01 01:11:26 +0000] [3253] [INFO] Worker exiting (pid: 3253)
+[2022-08-01 01:11:26 +0000] [3254] [INFO] Worker exiting (pid: 3254)
+[2022-08-01 01:11:26 +0000] [3255] [INFO] Worker exiting (pid: 3255)
+[2022-08-01 01:11:26 +0000] [3257] [INFO] Worker exiting (pid: 3257)
+[2022-08-01 01:11:26 +0000] [3256] [INFO] Worker exiting (pid: 3256)
+[2022-08-01 01:11:26 +0000] [3258] [INFO] Worker exiting (pid: 3258)
+[2022-07-31 22:11:27 -0300] [3252] [INFO] Shutting down: Master
+[2022-07-31 22:11:27 -0300] [3263] [DEBUG] Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['unix:/run/optar.socket']
+  backlog: 2048
+  workers: 6
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /root/app_repo
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /root/app_repo/gunicorn-error-log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: True
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: Optar.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f6da9e5cee0>
+  on_reload: <function OnReload.on_reload at 0x7f6da9458040>
+  when_ready: <function WhenReady.when_ready at 0x7f6da9458160>
+  pre_fork: <function Prefork.pre_fork at 0x7f6da9458280>
+  post_fork: <function Postfork.post_fork at 0x7f6da94583a0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f6da94584c0>
+  worker_int: <function WorkerInt.worker_int at 0x7f6da94585e0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f6da9458700>
+  pre_exec: <function PreExec.pre_exec at 0x7f6da9458820>
+  pre_request: <function PreRequest.pre_request at 0x7f6da9458940>
+  post_request: <function PostRequest.post_request at 0x7f6da94589d0>
+  child_exit: <function ChildExit.child_exit at 0x7f6da9458af0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f6da9458c10>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f6da9458d30>
+  on_exit: <function OnExit.on_exit at 0x7f6da9458e50>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-07-31 22:11:27 -0300] [3263] [INFO] Starting gunicorn 20.1.0
+[2022-07-31 22:11:27 -0300] [3263] [DEBUG] Arbiter booted
+[2022-07-31 22:11:27 -0300] [3263] [INFO] Listening at: unix:/run/optar.socket (3263)
+[2022-07-31 22:11:27 -0300] [3263] [INFO] Using worker: sync
+[2022-07-31 22:11:27 -0300] [3264] [INFO] Booting worker with pid: 3264
+[2022-07-31 22:11:27 -0300] [3265] [INFO] Booting worker with pid: 3265
+[2022-07-31 22:11:27 -0300] [3266] [INFO] Booting worker with pid: 3266
+[2022-07-31 22:11:27 -0300] [3267] [INFO] Booting worker with pid: 3267
+[2022-07-31 22:11:28 -0300] [3268] [INFO] Booting worker with pid: 3268
+[2022-07-31 22:11:28 -0300] [3269] [INFO] Booting worker with pid: 3269
+[2022-07-31 22:11:28 -0300] [3263] [DEBUG] 6 workers
+[2022-08-01 04:11:10 +0000] [3264] [INFO] Worker exiting (pid: 3264)
+[2022-08-01 01:11:10 -0300] [3263] [INFO] Handling signal: term
+[2022-08-01 04:11:10 +0000] [3266] [INFO] Worker exiting (pid: 3266)
+[2022-08-01 04:11:10 +0000] [3267] [INFO] Worker exiting (pid: 3267)
+[2022-08-01 04:11:10 +0000] [3265] [INFO] Worker exiting (pid: 3265)
+[2022-08-01 04:11:10 +0000] [3268] [INFO] Worker exiting (pid: 3268)
+[2022-08-01 04:11:10 +0000] [3269] [INFO] Worker exiting (pid: 3269)
+[2022-08-01 01:11:10 -0300] [3263] [WARNING] Worker with pid 3266 was terminated due to signal 15
+[2022-08-01 01:11:10 -0300] [3263] [WARNING] Worker with pid 3267 was terminated due to signal 15
+[2022-08-01 01:11:10 -0300] [3263] [WARNING] Worker with pid 3268 was terminated due to signal 15
+[2022-08-01 01:11:10 -0300] [3263] [WARNING] Worker with pid 3269 was terminated due to signal 15
+[2022-08-01 01:11:11 -0300] [3263] [WARNING] Worker with pid 3264 was terminated due to signal 15
+[2022-08-01 01:11:11 -0300] [3263] [INFO] Shutting down: Master
+[2022-08-01 12:22:24 -0300] [367] [DEBUG] Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['unix:/run/optar.socket']
+  backlog: 2048
+  workers: 6
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /root/app_repo
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /root/app_repo/gunicorn-error-log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: True
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: Optar.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f449aba0ee0>
+  on_reload: <function OnReload.on_reload at 0x7f449a19c040>
+  when_ready: <function WhenReady.when_ready at 0x7f449a19c160>
+  pre_fork: <function Prefork.pre_fork at 0x7f449a19c280>
+  post_fork: <function Postfork.post_fork at 0x7f449a19c3a0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f449a19c4c0>
+  worker_int: <function WorkerInt.worker_int at 0x7f449a19c5e0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f449a19c700>
+  pre_exec: <function PreExec.pre_exec at 0x7f449a19c820>
+  pre_request: <function PreRequest.pre_request at 0x7f449a19c940>
+  post_request: <function PostRequest.post_request at 0x7f449a19c9d0>
+  child_exit: <function ChildExit.child_exit at 0x7f449a19caf0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f449a19cc10>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f449a19cd30>
+  on_exit: <function OnExit.on_exit at 0x7f449a19ce50>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-08-01 12:22:24 -0300] [367] [INFO] Starting gunicorn 20.1.0
+[2022-08-01 12:22:24 -0300] [367] [DEBUG] Arbiter booted
+[2022-08-01 12:22:24 -0300] [367] [INFO] Listening at: unix:/run/optar.socket (367)
+[2022-08-01 12:22:24 -0300] [367] [INFO] Using worker: sync
+[2022-08-01 12:22:24 -0300] [433] [INFO] Booting worker with pid: 433
+[2022-08-01 12:22:24 -0300] [434] [INFO] Booting worker with pid: 434
+[2022-08-01 12:22:24 -0300] [436] [INFO] Booting worker with pid: 436
+[2022-08-01 12:22:24 -0300] [437] [INFO] Booting worker with pid: 437
+[2022-08-01 12:22:24 -0300] [438] [INFO] Booting worker with pid: 438
+[2022-08-01 12:22:24 -0300] [439] [INFO] Booting worker with pid: 439
+[2022-08-01 12:22:24 -0300] [367] [DEBUG] 6 workers
+[2022-08-01 17:42:29 +0000] [433] [INFO] Worker exiting (pid: 433)
+[2022-08-01 14:42:29 -0300] [367] [INFO] Handling signal: term
+[2022-08-01 17:42:29 +0000] [434] [INFO] Worker exiting (pid: 434)
+[2022-08-01 17:42:29 +0000] [436] [INFO] Worker exiting (pid: 436)
+[2022-08-01 17:42:29 +0000] [437] [INFO] Worker exiting (pid: 437)
+[2022-08-01 17:42:29 +0000] [438] [INFO] Worker exiting (pid: 438)
+[2022-08-01 17:42:29 +0000] [439] [INFO] Worker exiting (pid: 439)
+[2022-08-01 14:42:29 -0300] [367] [WARNING] Worker with pid 436 was terminated due to signal 15
+[2022-08-01 14:42:29 -0300] [367] [WARNING] Worker with pid 434 was terminated due to signal 15
+[2022-08-01 14:42:29 -0300] [367] [WARNING] Worker with pid 433 was terminated due to signal 15
+[2022-08-01 14:42:29 -0300] [367] [WARNING] Worker with pid 437 was terminated due to signal 15
+[2022-08-01 14:42:29 -0300] [367] [WARNING] Worker with pid 438 was terminated due to signal 15
+[2022-08-01 14:42:29 -0300] [367] [WARNING] Worker with pid 439 was terminated due to signal 15
+[2022-08-01 14:42:29 -0300] [367] [INFO] Shutting down: Master
+[2022-08-01 14:42:29 -0300] [1259] [DEBUG] Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['unix:/run/optar.sock']
+  backlog: 2048
+  workers: 6
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /root/app_repo
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /root/app_repo/gunicorn-error-log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: True
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: Optar.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7ff76d24dee0>
+  on_reload: <function OnReload.on_reload at 0x7ff76c8aa040>
+  when_ready: <function WhenReady.when_ready at 0x7ff76c8aa160>
+  pre_fork: <function Prefork.pre_fork at 0x7ff76c8aa280>
+  post_fork: <function Postfork.post_fork at 0x7ff76c8aa3a0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7ff76c8aa4c0>
+  worker_int: <function WorkerInt.worker_int at 0x7ff76c8aa5e0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7ff76c8aa700>
+  pre_exec: <function PreExec.pre_exec at 0x7ff76c8aa820>
+  pre_request: <function PreRequest.pre_request at 0x7ff76c8aa940>
+  post_request: <function PostRequest.post_request at 0x7ff76c8aa9d0>
+  child_exit: <function ChildExit.child_exit at 0x7ff76c8aaaf0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7ff76c8aac10>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7ff76c8aad30>
+  on_exit: <function OnExit.on_exit at 0x7ff76c8aae50>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-08-01 14:42:29 -0300] [1259] [INFO] Starting gunicorn 20.1.0
+[2022-08-01 14:42:29 -0300] [1259] [DEBUG] Arbiter booted
+[2022-08-01 14:42:29 -0300] [1259] [INFO] Listening at: unix:/run/optar.sock (1259)
+[2022-08-01 14:42:29 -0300] [1259] [INFO] Using worker: sync
+[2022-08-01 14:42:29 -0300] [1260] [INFO] Booting worker with pid: 1260
+[2022-08-01 14:42:29 -0300] [1261] [INFO] Booting worker with pid: 1261
+[2022-08-01 14:42:29 -0300] [1262] [INFO] Booting worker with pid: 1262
+[2022-08-01 14:42:29 -0300] [1263] [INFO] Booting worker with pid: 1263
+[2022-08-01 14:42:29 -0300] [1264] [INFO] Booting worker with pid: 1264
+[2022-08-01 14:42:29 -0300] [1265] [INFO] Booting worker with pid: 1265
+[2022-08-01 14:42:29 -0300] [1259] [DEBUG] 6 workers
+[2022-08-01 18:11:40 +0000] [1265] [DEBUG] GET /
+ - - [01/Aug/2022:18:11:40 +0000] "GET / HTTP/1.1" 200 3303 "-" "curl/7.58.0"
+[2022-08-01 18:13:25 +0000] [1260] [INFO] Worker exiting (pid: 1260)
+[2022-08-01 18:13:25 +0000] [1261] [INFO] Worker exiting (pid: 1261)
+[2022-08-01 18:13:25 +0000] [1262] [INFO] Worker exiting (pid: 1262)
+[2022-08-01 18:13:25 +0000] [1263] [INFO] Worker exiting (pid: 1263)
+[2022-08-01 18:13:25 +0000] [1264] [INFO] Worker exiting (pid: 1264)
+[2022-08-01 15:13:25 -0300] [1259] [INFO] Handling signal: term
+[2022-08-01 18:13:25 +0000] [1265] [INFO] Worker exiting (pid: 1265)
+[2022-08-01 15:13:25 -0300] [1259] [WARNING] Worker with pid 1260 was terminated due to signal 15
+[2022-08-01 15:13:25 -0300] [1259] [WARNING] Worker with pid 1263 was terminated due to signal 15
+[2022-08-01 15:13:25 -0300] [1259] [WARNING] Worker with pid 1261 was terminated due to signal 15
+[2022-08-01 15:13:25 -0300] [1259] [WARNING] Worker with pid 1262 was terminated due to signal 15
+[2022-08-01 15:13:25 -0300] [1259] [WARNING] Worker with pid 1264 was terminated due to signal 15
+[2022-08-01 15:13:25 -0300] [1259] [INFO] Shutting down: Master
+[2022-08-01 15:13:25 -0300] [1456] [DEBUG] Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['unix:/run/optar.sock']
+  backlog: 2048
+  workers: 6
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /root/app_repo
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /root/app_repo/gunicorn-error-log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: True
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: Optar.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fb4cda96ee0>
+  on_reload: <function OnReload.on_reload at 0x7fb4cd092040>
+  when_ready: <function WhenReady.when_ready at 0x7fb4cd092160>
+  pre_fork: <function Prefork.pre_fork at 0x7fb4cd092280>
+  post_fork: <function Postfork.post_fork at 0x7fb4cd0923a0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fb4cd0924c0>
+  worker_int: <function WorkerInt.worker_int at 0x7fb4cd0925e0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fb4cd092700>
+  pre_exec: <function PreExec.pre_exec at 0x7fb4cd092820>
+  pre_request: <function PreRequest.pre_request at 0x7fb4cd092940>
+  post_request: <function PostRequest.post_request at 0x7fb4cd0929d0>
+  child_exit: <function ChildExit.child_exit at 0x7fb4cd092af0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fb4cd092c10>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fb4cd092d30>
+  on_exit: <function OnExit.on_exit at 0x7fb4cd092e50>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-08-01 15:13:25 -0300] [1456] [INFO] Starting gunicorn 20.1.0
+[2022-08-01 15:13:25 -0300] [1456] [DEBUG] Arbiter booted
+[2022-08-01 15:13:25 -0300] [1456] [INFO] Listening at: unix:/run/optar.sock (1456)
+[2022-08-01 15:13:25 -0300] [1456] [INFO] Using worker: sync
+[2022-08-01 15:13:25 -0300] [1457] [INFO] Booting worker with pid: 1457
+[2022-08-01 15:13:25 -0300] [1458] [INFO] Booting worker with pid: 1458
+[2022-08-01 15:13:25 -0300] [1459] [INFO] Booting worker with pid: 1459
+[2022-08-01 15:13:25 -0300] [1460] [INFO] Booting worker with pid: 1460
+[2022-08-01 15:13:26 -0300] [1461] [INFO] Booting worker with pid: 1461
+[2022-08-01 15:13:26 -0300] [1462] [INFO] Booting worker with pid: 1462
+[2022-08-01 15:13:26 -0300] [1456] [DEBUG] 6 workers
+[2022-08-01 18:13:30 +0000] [1457] [INFO] Worker exiting (pid: 1457)
+[2022-08-01 18:13:30 +0000] [1458] [INFO] Worker exiting (pid: 1458)
+[2022-08-01 18:13:30 +0000] [1459] [INFO] Worker exiting (pid: 1459)
+[2022-08-01 18:13:30 +0000] [1460] [INFO] Worker exiting (pid: 1460)
+[2022-08-01 18:13:30 +0000] [1461] [INFO] Worker exiting (pid: 1461)
+[2022-08-01 15:13:30 -0300] [1456] [INFO] Handling signal: term
+[2022-08-01 15:13:30 -0300] [1456] [WARNING] Worker with pid 1460 was terminated due to signal 15
+[2022-08-01 15:13:30 -0300] [1456] [WARNING] Worker with pid 1459 was terminated due to signal 15
+[2022-08-01 15:13:30 -0300] [1456] [WARNING] Worker with pid 1461 was terminated due to signal 15
+[2022-08-01 15:13:30 -0300] [1456] [WARNING] Worker with pid 1457 was terminated due to signal 15
+[2022-08-01 15:13:30 -0300] [1456] [WARNING] Worker with pid 1458 was terminated due to signal 15
+[2022-08-01 18:13:30 +0000] [1462] [INFO] Worker exiting (pid: 1462)
+[2022-08-01 15:13:31 -0300] [1456] [INFO] Shutting down: Master
+[2022-08-01 15:13:31 -0300] [1468] [DEBUG] Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['unix:/run/optar.sock']
+  backlog: 2048
+  workers: 6
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /root/app_repo
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: -
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: /root/app_repo/gunicorn-error-log
+  loglevel: debug
+  capture_output: True
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: True
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: Optar.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f5d93451ee0>
+  on_reload: <function OnReload.on_reload at 0x7f5d92a4d040>
+  when_ready: <function WhenReady.when_ready at 0x7f5d92a4d160>
+  pre_fork: <function Prefork.pre_fork at 0x7f5d92a4d280>
+  post_fork: <function Postfork.post_fork at 0x7f5d92a4d3a0>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f5d92a4d4c0>
+  worker_int: <function WorkerInt.worker_int at 0x7f5d92a4d5e0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f5d92a4d700>
+  pre_exec: <function PreExec.pre_exec at 0x7f5d92a4d820>
+  pre_request: <function PreRequest.pre_request at 0x7f5d92a4d940>
+  post_request: <function PostRequest.post_request at 0x7f5d92a4d9d0>
+  child_exit: <function ChildExit.child_exit at 0x7f5d92a4daf0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f5d92a4dc10>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f5d92a4dd30>
+  on_exit: <function OnExit.on_exit at 0x7f5d92a4de50>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-08-01 15:13:31 -0300] [1468] [INFO] Starting gunicorn 20.1.0
+[2022-08-01 15:13:31 -0300] [1468] [DEBUG] Arbiter booted
+[2022-08-01 15:13:31 -0300] [1468] [INFO] Listening at: unix:/run/optar.sock (1468)
+[2022-08-01 15:13:31 -0300] [1468] [INFO] Using worker: sync
+[2022-08-01 15:13:31 -0300] [1469] [INFO] Booting worker with pid: 1469
+[2022-08-01 15:13:31 -0300] [1470] [INFO] Booting worker with pid: 1470
+[2022-08-01 15:13:31 -0300] [1471] [INFO] Booting worker with pid: 1471
+[2022-08-01 15:13:31 -0300] [1473] [INFO] Booting worker with pid: 1473
+[2022-08-01 15:13:31 -0300] [1472] [INFO] Booting worker with pid: 1472
+[2022-08-01 15:13:31 -0300] [1474] [INFO] Booting worker with pid: 1474
+[2022-08-01 15:13:31 -0300] [1468] [DEBUG] 6 workers
+[2022-08-01 18:34:39 +0000] [1472] [DEBUG] GET /
+ - - [01/Aug/2022:18:34:39 +0000] "GET / HTTP/1.0" 200 3303 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 19:20:58 +0000] [1471] [DEBUG] GET /
+ - - [01/Aug/2022:19:20:58 +0000] "GET / HTTP/1.0" 200 3303 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 19:30:47 +0000] [1474] [DEBUG] GET /
+ - - [01/Aug/2022:19:30:48 +0000] "GET / HTTP/1.0" 200 3303 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 19:31:45 +0000] [1469] [DEBUG] GET /
+ - - [01/Aug/2022:19:31:45 +0000] "GET / HTTP/1.0" 200 3303 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+[2022-08-01 19:35:18 +0000] [1470] [DEBUG] GET /
+ - - [01/Aug/2022:19:35:18 +0000] "GET / HTTP/1.0" 200 3303 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 19:41:06 +0000] [1469] [DEBUG] GET /
+ - - [01/Aug/2022:19:41:06 +0000] "GET / HTTP/1.0" 200 3303 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 19:41:20 +0000] [1471] [DEBUG] POST /
+O CNPJ:  05.193.235/0001-60
+PASSWORD:  vitornt22
+ - - [01/Aug/2022:19:41:20 +0000] "POST / HTTP/1.0" 302 0 "http://82.180.132.138/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 19:41:20 +0000] [1470] [DEBUG] GET /
+ - - [01/Aug/2022:19:41:20 +0000] "GET / HTTP/1.0" 200 3452 "http://82.180.132.138/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 19:51:24 +0000] [1471] [DEBUG] GET /
+ - - [01/Aug/2022:19:51:24 +0000] "GET / HTTP/1.0" 200 3309 "http://82.180.132.138/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 19:57:07 +0000] [1473] [DEBUG] POST /
+O CNPJ:  1.142.600/9001-85
+PASSWORD:  vitornt434@gmail.com
+ - - [01/Aug/2022:19:57:07 +0000] "POST / HTTP/1.0" 302 0 "http://82.180.132.138/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 19:57:07 +0000] [1469] [DEBUG] GET /
+ - - [01/Aug/2022:19:57:07 +0000] "GET / HTTP/1.0" 200 3458 "http://82.180.132.138/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 19:57:13 +0000] [1470] [DEBUG] POST /
+O CNPJ:  
+PASSWORD:  
+ - - [01/Aug/2022:19:57:13 +0000] "POST / HTTP/1.0" 302 0 "http://82.180.132.138/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 19:57:13 +0000] [1471] [DEBUG] GET /
+ - - [01/Aug/2022:19:57:13 +0000] "GET / HTTP/1.0" 200 3458 "http://82.180.132.138/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 19:57:13 +0000] [1473] [DEBUG] POST /
+O CNPJ:  
+PASSWORD:  
+ - - [01/Aug/2022:19:57:14 +0000] "POST / HTTP/1.0" 302 0 "http://82.180.132.138/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 19:57:14 +0000] [1471] [DEBUG] GET /
+ - - [01/Aug/2022:19:57:14 +0000] "GET / HTTP/1.0" 200 3607 "http://82.180.132.138/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 19:57:24 +0000] [1470] [DEBUG] GET /vehicles
+Not Found: /vehicles
+ - - [01/Aug/2022:19:57:24 +0000] "GET /vehicles HTTP/1.0" 404 3254 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 19:57:32 +0000] [1474] [DEBUG] GET /
+ - - [01/Aug/2022:19:57:32 +0000] "GET / HTTP/1.0" 200 3309 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 19:58:27 +0000] [1470] [DEBUG] GET /
+ - - [01/Aug/2022:19:58:27 +0000] "GET / HTTP/1.0" 200 3133 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 19:58:29 +0000] [1471] [DEBUG] GET /
+ - - [01/Aug/2022:19:58:29 +0000] "GET / HTTP/1.0" 200 3133 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 19:58:46 +0000] [1472] [DEBUG] GET /
+ - - [01/Aug/2022:19:58:46 +0000] "GET / HTTP/1.0" 200 3133 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 20:09:02 +0000] [1473] [DEBUG] GET /
+ - - [01/Aug/2022:20:09:02 +0000] "GET / HTTP/1.0" 200 3133 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 20:09:05 +0000] [1472] [DEBUG] GET /
+ - - [01/Aug/2022:20:09:05 +0000] "GET / HTTP/1.0" 200 3133 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 20:09:46 +0000] [1471] [DEBUG] GET /
+ - - [01/Aug/2022:20:09:46 +0000] "GET / HTTP/1.0" 200 3133 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 20:13:00 +0000] [1470] [DEBUG] GET /
+ - - [01/Aug/2022:20:13:00 +0000] "GET / HTTP/1.0" 200 3133 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 20:13:03 +0000] [1471] [DEBUG] GET /
+ - - [01/Aug/2022:20:13:03 +0000] "GET / HTTP/1.0" 200 3133 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 20:15:35 +0000] [1474] [DEBUG] GET /
+ - - [01/Aug/2022:20:15:35 +0000] "GET / HTTP/1.1" 200 3133 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 20:15:37 +0000] [1472] [DEBUG] GET /
+ - - [01/Aug/2022:20:15:37 +0000] "GET / HTTP/1.1" 200 3133 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 20:15:39 +0000] [1469] [DEBUG] GET /
+ - - [01/Aug/2022:20:15:39 +0000] "GET / HTTP/1.1" 200 3133 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 20:15:44 +0000] [1469] [DEBUG] GET /
+ - - [01/Aug/2022:20:15:44 +0000] "GET / HTTP/1.1" 200 3133 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 20:17:34 +0000] [1471] [DEBUG] GET /
+ - - [01/Aug/2022:20:17:34 +0000] "GET / HTTP/1.1" 200 3133 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 20:17:36 +0000] [1473] [DEBUG] GET /
+ - - [01/Aug/2022:20:17:36 +0000] "GET / HTTP/1.1" 200 3133 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 20:21:02 +0000] [1470] [DEBUG] POST /
+O CNPJ:  11.426.009/0001-85
+PASSWORD:  OPR4RLKMVX22J
+ - - [01/Aug/2022:20:21:02 +0000] "POST / HTTP/1.1" 302 0 "http://82.180.132.138/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+[2022-08-01 20:21:02 +0000] [1469] [DEBUG] GET /
+ - - [01/Aug/2022:20:21:02 +0000] "GET / HTTP/1.1" 200 3282 "http://82.180.132.138/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
