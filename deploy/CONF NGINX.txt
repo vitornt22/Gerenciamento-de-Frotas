@@ -1,0 +1,31 @@
+
+##SUBSTITUIR 
+
+NOMEPASTA = NOME DO ARQUIVO
+CAMINHO= CAMINHO DO REPOSITORIO (/root/app_repo verifique o seu)
+DOMINIO= DOMINIO OU IP DO SERVIDOR
+
+
+# TUTORIALLL https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04-pt
+#CRIANDO ARQUIVO PARA SITES DISPONIVEIS 
+sudo nano /etc/nginx/sites-available/NOMEPASTA
+
+#COPIANDO ARQUIVO PARA SITES ATIVADOS
+sudo ln -s /etc/nginx/sites-available/myproject /etc/nginx/sites-enabled
+rm 
+
+
+server {
+    listen 80;
+    server_name DOMINIO;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root CAMINHO;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/run/NOMEPASTA.sock;
+    }
+}

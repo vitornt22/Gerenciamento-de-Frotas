@@ -1,32 +1,33 @@
-###############################################################################
-# Replace
-# optar to the name of the gunicorn file you want
-# root to your user name
-# app_repo to the folder name of your project
-# Optar to the folder name where you find a file called wsgi.py
-#
-###############################################################################
-# Criando o arquivo optar.socket
 
-###############################################################################
-# Conteúdo do arquivo
+
+
+
+# TUTORIALLL https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04-pt
+#############CONFIGURANDO GUNICORN#################
+
+#Adicionando arquivo socket
+
+sudo nano /etc/systemd/system/optar.socket
+
+#Colar esse codigo no Nano (ctrt+O salva, ctrl+X sair)
+# Ver a diferença entre SOCK e SOCKET
+
 [Unit]
-Description=gunicorn blog socket
+Description=gunicorn socket
 
 [Socket]
-ListenStream=/run/optar.socket
+ListenStream=/run/optar.sock
 
 [Install]
 WantedBy=sockets.target
 
-###############################################################################
-# Criando o arquivo optar.service
+
+#Adicionando arquivo service
+
 sudo nano /etc/systemd/system/optar.service
 
-#################sudo nano /etc/systemd/system/optar.service
-sudo nano /etc/systemd/system/optar.service
-##############################################################
-# Conteúdo do arquivo
+#Colar esse codigo no Nano (ctrt+O salva, ctrl+X sair)
+
 [Unit]
 Description=Gunicorn daemon (You can change if you want)
 Requires=optar.socket
@@ -47,13 +48,12 @@ ExecStart=/root/app_repo/venv/bin/gunicorn \
           --capture-output \
           --access-logfile - \
           --workers 6 \
-          --bind unix:/run/optar.socket \
+          --bind unix:/run/optar.sock \
           Optar.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
 
-###############################################################################
 # Ativando
 sudo systemctl start optar.socket
 sudo systemctl enable optar.socket
