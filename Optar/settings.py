@@ -14,8 +14,6 @@ import os
 from pathlib import Path
 from telnetlib import LOGOUT
 
-import dj_database_url
-import django_on_heroku
 from decouple import config
 from django.contrib.messages import constants
 from dotenv import find_dotenv, load_dotenv
@@ -28,13 +26,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'INSECURE')
+SECRET_KEY = config('SECRET_KEY', 'INSECURE')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-#DEBUG = True if os.environ.get('DEBUG') == 1 else False
-DEBUG = False
-
+DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
@@ -89,34 +85,20 @@ WSGI_APPLICATION = 'Optar.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-load_dotenv(find_dotenv())
 # DATABASES DOTENV
 # USANDO ESTE BANCO
 
-DATABASES = {
-    'default': {
-        'ENGINE': "django.db.backends.postgresql",
-        'NAME': "optar",
-        'USER': "vitor",
-        'PASSWORD': "vitornt22",
-        'HOST': "127.0.0.1",
-        'PORT': "5432",
-    }
-}
 
-'''
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get('DATABASE_ENGINE'),
-        'NAME': os.environ.get('DATABASE_NAME'),
-        'USER': os.environ.get('DATABASE_USER'),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
-        'HOST': os.environ.get('DATABASE_HOST'),
-        'PORT': os.environ.get('DATABASE_PORT'),
+        'ENGINE': config('DATABASE_ENGINE'),
+        'NAME': config('DATABASE_NAME'),
+        'USER': config('DATABASE_USER'),
+        'PASSWORD': config('DATABASE_PASSWORD'),
+        'HOST': config('DATABASE_HOST'),
+        'PORT': config('DATABASE_PORT'),
     }
 }
-'''
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

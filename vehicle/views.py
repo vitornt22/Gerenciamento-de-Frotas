@@ -13,6 +13,7 @@ from gain.models import Gain
 from location.forms import LocationForm
 from location.gerarPdf import gerarObj
 from location.models import Contract, Location
+from Optar import settings as varoptar
 from report.models import Report
 from spent.forms import SpentForm
 from spent.models import Spent
@@ -41,6 +42,8 @@ def check_dates(vehicle, request):
 
 @login_required(login_url='company:login', redirect_field_name='next')
 def index(request):
+    print("DEBUGG", varoptar.DEBUG)
+    print("DATABASE", varoptar.DATABASES['default']['ENGINE'])
     vehicle = Vehicle.objects.filter(company_user=request.user)
     check_dates(vehicle, request)
     tabela = Vehicle.objects.filter(
@@ -85,6 +88,7 @@ def index(request):
 
 @login_required(login_url='company:login', redirect_field_name='next')
 def remove(request, slugParam):
+
     vehicle = Vehicle.objects.get(company_user=request.user, slug=slugParam)
     remove = Vehicle.objects.filter(slug=slugParam)
     if Location.objects.filter(id_vehicle=vehicle, status=True).exists():
