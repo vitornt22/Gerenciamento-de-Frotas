@@ -314,15 +314,11 @@ def enviarEmail(request, slugParam, empresa, id):
     email_msg['Subject'] = "Contrato de Locação OPTAR: "+str(emp.name)
     email_msg.attach(MIMEText(corpo, 'html'))
 
-    try:
-        attachment = open(
-            str(BASE_DIR)+"/PdfContratos/ContratoNº"+str(locacao.id)+".pdf", 'rb')
-    except:
-        pdf = canvas.Canvas(str(BASE_DIR)+"/ContratoNº"+str(locacao.id)+".pdf")
-        createPdf(pdf, contract)
-        pdf.save()
-        attachment = open(str(BASE_DIR)+"/ContratoNº" +
-                          str(locacao.id)+".pdf", 'rb')
+    pdf = canvas.Canvas(str(BASE_DIR)+"/ContratoNº"+str(locacao.id)+".pdf")
+    createPdf(pdf, contract)
+    pdf.save()
+    attachment = open(str(BASE_DIR)+"/ContratoNº" +
+                      str(locacao.id)+".pdf", 'rb')
 
     att = MIMEBase('application', 'octet-stream')
     att.set_payload(attachment.read())
