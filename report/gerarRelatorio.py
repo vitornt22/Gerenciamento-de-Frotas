@@ -49,8 +49,7 @@ def line(pdf, obj, cont, categoria):
         if categoria == "SAIDAS":
             pdf.drawString(30, cont+5, obj.occasion)
         else:
-            pdf.drawString(30, cont+5, "OCASIÃO: Locação para:" +
-                           obj.id_company.company_name+"-"+str(obj.id_company.cnpj))
+            pdf.drawString(30, cont+5, "OCASIÃO: Locação "+str(obj.id))
 
         pdf.drawString(300, cont+5, "DATA: "+str(obj.date))
         pdf.drawString(470, cont+5, "VALOR(R$): "+str(obj.valor))

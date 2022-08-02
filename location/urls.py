@@ -16,6 +16,8 @@ urlpatterns = [
          views.remove, name='removeAll'),
     path('<slug:slugParam>/<int:id>/remove',
          views.remove, name='remove'),
+    path('Email/<slug:slugParam>/<int:empresa>/<int:id>',
+         views.enviarEmail, name='email'),
 
 
 

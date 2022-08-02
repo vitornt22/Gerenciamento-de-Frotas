@@ -1,17 +1,27 @@
 import datetime
 import io
+import smtplib
+from email import encoders
+from email.mime.base import MIMEBase
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from logging import exception
+from multiprocessing.connection import Client
 
+from client_Company.models import Client_company
 from company.models import Company
 from dateutil.relativedelta import relativedelta
+from decouple import config
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
 from django.db.models import Q
 from django.forms import ValidationError
 from django.http import FileResponse, HttpResponse
 from django.shortcuts import redirect, render
 from gain.addGains import addGains, removeGains
 from gain.models import Gain
+from Optar.settings import BASE_DIR, STATICFILES_DIRS
 from reportlab.pdfgen import canvas
 from spent.models import Spent
 from vehicle.models import Vehicle
@@ -276,3 +286,89 @@ def locar(request, slugParam, profileParam):
         form = LocationForm()
 
     return render(request, 'location/locar.html', {'active': 1, 'flag': False, 'vehicle': vehicle,  'form': form, 'profile': profileParam, 'slug': slugParam})
+
+
+@ login_required(login_url='company:login', redirect_field_name='next')
+def enviarEmail(request, slugParam, empresa, id):
+    locacao = Location.objects.get(id=id)
+    contract = Contract.objects.get(id_location=locacao)
+
+    emp = Client_company.objects.get(company_user=request.user, id=empresa)
+
+    host = "smtp.gmail.com"
+    port = '587'
+    login = 'vitornt434@gmail.com'
+    senha = "gzhzkyywxlzjadpj"
+
+    server = smtplib.SMTP(host, port)
+    server.starttls()
+    server.login(login, senha)
+
+    # MONTANDO EMAIL
+    f = open(
+        str(BASE_DIR)+"/templates/emailModel.html", 'r', encoding='utf-8')
+    corpo = f.read()
+    email_msg = MIMEMultipart()
+    email_msg['From'] = login
+    email_msg['To'] = emp.email
+    email_msg['Subject'] = "Contrato de Locação OPTAR: "+str(emp.name)
+    email_msg.attach(MIMEText(corpo, 'html'))
+
+    try:
+        attachment = open(
+            str(BASE_DIR)+"/PdfContratos/ContratoNº"+str(locacao.id)+".pdf", 'rb')
+    except:
+        pdf = canvas.Canvas(str(BASE_DIR)+"/ContratoNº"+str(locacao.id)+".pdf")
+        createPdf(pdf, contract)
+        pdf.save()
+        attachment = open(str(BASE_DIR)+"/ContratoNº" +
+                          str(locacao.id)+".pdf", 'rb')
+
+    att = MIMEBase('application', 'octet-stream')
+    att.set_payload(attachment.read())
+    encoders.encode_base64(att)
+
+    att.add_header('content-Disposition',
+                   f'attachment; filename= Contrato.pdf')
+    attachment.close()
+
+    email_msg.attach(att)
+
+    # ENVIANDO EMAIL
+
+    server.sendmail(email_msg['From'], email_msg['To'], email_msg.as_string())
+    server.quit()
+    return redirect('location:allLocations')
+
+
+'''
+@ login_required(login_url='company:login', redirect_field_name='next')
+def enviarEmail(request, slugParam, id):
+
+    # empresa = Client_company.objects.get(company_user=request.user, id=id)
+    corpo_email = """
+    <p>Parágrafo1</p>
+     Olá, esse é o contrato de locação para sua empresa.
+    <p>Parágrafo2</p>
+    """
+    msg = MIMEMultipart()
+    msg['Subject'] = "Contrato de locação"
+    msg['From'] = 'vitornt434@gmail.com'
+    msg['To'] = 'memorizephotos@gmail.com'
+    msg['Date'] = datetime.date.today()
+    password = 'gzhzkyywxlzjadpj'
+    msg.add_header('Content-Type', 'text/html')
+    msg.attach(FileResponse(p, as_attachment=True, filename='Locação.pdf'))
+
+    msg.set_payload(corpo_email)
+
+    s = smtplib.SMTP('smtp.gmail.com: 587')
+    s.starttls()
+    # Login Credentials for sending the mail
+    s.login(msg['From'], password)
+    s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
+    print('Email enviado')
+    s.quit()
+    return HttpResponse('olá')
+
+'''

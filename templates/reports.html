@@ -150,10 +150,10 @@
       <div  style="height: 70Vh;" class="card">
         <div class="card-header bg-lightblue">
         <div class="mb-3 row">
-        <div class="col-lg-5 col col-md-5 col-sm-4 col-2"
+        <div class="col-lg-5 col col-md-5 col-sm-4 col-12"
         <h3 class="card-title">Relatórios</h3>
         </div>
-        <div class="col-10 col-lg-7 col-md-7 col-sm-4">
+        <div class="col-10 col-lg-7 col-md-7 col-sm-4 col-12">
           <div class="card-tools">
             <form method="POST">
                 {% csrf_token %}
@@ -220,7 +220,7 @@
     {% if scroll == 10%}
     $(document).ready(function(){
         $('html, body').animate({
-            scrollTop: 500
+            scrollTop: 2000
         }, 1600);
     });
     {%endif%}
