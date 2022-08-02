@@ -20,7 +20,6 @@
 <li class="nav-item">
 <a name="" class="nav-link"  href="{%url 'vehicle:one' %}" data-toggle="tooltip"
 data-placement="top" title="Listar Veículos">
-    <!--Botao Sair-->
     <i class="fa-solid fa-list"></i>
 </a>
 </li>
@@ -102,23 +101,21 @@ data-placement="top" title="Listar Veículos">
                         <div class = "list-items" style="text-align: center;">
                             <a style="font-size: 0.8rem;" name="edit"
                                href="{% url 'vehicle:edit' vehicle.slug %}"
-                               type="button"
                                class="btn btn-primary">Editar <i class="fa-regular fa-pen-to-square"></i>
                             </a>
                             <a style="font-size: 0.8rem;" name="removeButton"
                                     href="{%url 'vehicle:removeAll' vehicle.slug%}"
                                     value="{{ vehicle.chassi }}"
                                     id="removeButton"
-                                    type="button"
                                     class="areSure btn btn-danger">
                                 Remover <i class="fa-regular fa-trash-can"></i>
                             </a>
                             {% if vehicle.it_location %}
-                                <button style="font-size: 0.7rem;" type="button"
+                                <button style="font-size: 0.7rem;" 
                                         disabled
                                         class="btn btn-secondary">Locado! <i class="fa-solid fa-lock"></i></button>
                             {% else %}
-                                <a style="font-size: 0.8rem;" type="button"
+                                <a style="font-size: 0.8rem;" 
                                    href="{% url 'location:locar' vehicle.slug profile %}"
                                    class="btn btn-success">Locar <i class="fa-regular fa-circle-check"></i></a>
                             {% endif %}
