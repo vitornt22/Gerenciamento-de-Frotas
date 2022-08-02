@@ -35,7 +35,7 @@
           <td> {{i.email}} </td>
           <td> {{i.contact}} </td>
           <td>
-            <a type="button"   href="{%url 'clientCompany:remove' i.slug %}" name="remover" value ="{{i.id}}" class="areSure btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir">
+            <a    href="{%url 'clientCompany:remove' i.slug %}" name="remover" value ="{{i.id}}" class="areSure btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir">
               <i class="fa-solid fa-trash-can"></i>  
             </a>
           </td>

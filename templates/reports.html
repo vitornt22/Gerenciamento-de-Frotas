@@ -149,13 +149,16 @@
     <div class="col-lg-12">
       <div  style="height: 70Vh;" class="card">
         <div class="card-header bg-lightblue">
+        <div class="mb-3 row">
+        <div class="col-lg-5 col col-md-5 col-sm-4 col-2"
         <h3 class="card-title">Relatórios</h3>
-
+        </div>
+        <div class="col-10 col-lg-7 col-md-7 col-sm-4">
           <div class="card-tools">
             <form method="POST">
                 {% csrf_token %}
                 <div class="align-items-center row">
-                <div class="col-md-4">
+                <div class="col-md-4 col-sm-5 col-4">
                 <input class="form-control"
                     type="number"
                     name="month"
@@ -163,7 +166,7 @@
                     placeholder="mês"
                     aria-label="Search">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5 col-sm-5 col-4">
                   <select class="form-control" name="year">
                      <option value="1" selected disabled hidden>Ano</option>
                       {%for j in anos%}
@@ -171,7 +174,7 @@
                       {%endfor%}
                     </select>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-2 col-2">
                   <button name="searchReport" data-toggle="tooltip"
                   data-placement="top"
                   title="Pesquisar" class="btn btn-outline-dark" type="submit">
@@ -179,9 +182,11 @@
                   </button>
                 </div>
               </div>
-              </form>
-            
+            </form>
           </div>
+          
+        </div>
+        </div>
         </div>
         <!-- /.card-header -->
         <div class="card-body table-responsive p-0" style="height: 300px;">
@@ -200,7 +205,7 @@
                     <td>Relatório {{i.id}}</td>
                     <td>{{i.month}}</td>
                     <td>{{i.year}}</td>
-                    <td><a style="width: 8rem; height:2.5rem;"  type="button"  href="{%url 'report:pdf' i.id %}" name="download" value = "{{i.id}}"  class=" btn btn-primary"> Download <i class="fa-solid fa-download"></i></a></td>
+                    <td><a style="width: 8rem; height:2.5rem;"    href="{%url 'report:pdf' i.id %}" name="download" value = "{{i.id}}"  class=" btn btn-primary"> Download <i class="fa-solid fa-download"></i></a></td>
                 </tr>
                 {%endfor%}
             </tbody>

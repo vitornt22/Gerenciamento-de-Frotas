@@ -12,7 +12,7 @@ class Client_CompanyForm(forms.ModelForm):
 
         error_messages = {
             'cnpj': {'required': 'Este campo é obrigatório', 'unique': ' Este cnpj ja existe'},  # noqa
-            'state': {'required': 'Este campo é obrigatório', },  # noqa
+            'state': {'required': 'Este campo é obrigatório', 'class': 'form-control'},  # noqa
             'contact': {'required': 'Este campo é obrigatório', },  # noqa
             'name': {'required': 'Este campo é obrigatório', },  # noqa
             'email': {'required': 'Este campo é obrigatório', 'unique': 'Este email já existe'},  # noqa

@@ -1,11 +1,11 @@
 {%extends 'BaseItems/baseTabela.html'%}
+{%load static%}
+{%block links%}
+
+{% endblock links %}
 
 {% block cardTitle %}
-    {%if prev  == "location:locations" %}
-    <h3 class="card-title">Locações de {{vehicle.vehicle_type}}, Chassi: {{vehicle.chassi}} </h3>
-    {%else%}
-    <h3 class="card-title">Locações de {{request.user.company_name}}</h3>
-    {%endif%}
+    <h3 class="card-title">Locações</h3>
 {% endblock cardTitle %}
 
 

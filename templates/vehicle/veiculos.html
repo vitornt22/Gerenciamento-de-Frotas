@@ -75,7 +75,7 @@ data-placement="top" title="Listar Veículos">
             
             {%for vehicle in tabela%}
             <a role="button" href="{%url 'vehicle:profile' vehicle.slug %}">
-            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+            <div class="col-12 col-lg-6  col-xl-4 col-sm-12  col-md-6 d-flex align-items-stretch flex-column">
               <div class="card bg-light d-flex flex-fill">
                 <div class="card-header text-muted border-bottom-0">
                 </div>
@@ -96,6 +96,7 @@ data-placement="top" title="Listar Veículos">
                   </div>
                 </div>
                 <div class=" card-footer">
+                
                   <div class="text-right">
                     <a href="#" class="btn ">
                         <div class = "list-items" style="text-align: center;">
@@ -121,7 +122,7 @@ data-placement="top" title="Listar Veículos">
                             {% endif %}
                         </div>
                     </a>
-                    
+
                   </div>
                 </div>
               </div>

@@ -49,7 +49,7 @@ class CompanyForm(UserChangeForm):
             'district': forms.TextInput(attrs={'placeholder': 'Bairro da empresa'}),
             'zip_code': forms.TextInput(attrs={'placeholder': 'CEP da Empresa', 'data-mask': '99999-999'}),  # noqa
             'city': forms.TextInput(attrs={'placeholder': 'Cidade'}),
-            'state': forms.Select(attrs={'placeholder': 'Estado'}),
+            'state': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Estado'}),
             'is_admin': forms.HiddenInput(),
             'is_active': forms.HiddenInput(),
             'is_staff': forms.HiddenInput(),
