@@ -101,9 +101,12 @@ def edit(request, slugParam):
             edit.save()
 
             # atualizando os contratos de locacoes em andamento
-            for i in Location.objects.filter(id_empresa=edit, status=True):
-                if Contract.objects.filter(id_location=i).exists():
-                    gerarObj(i)
+            try:
+                for i in Location.objects.filter(id_empresa=edit, status=True):
+                    if Contract.objects.filter(id_location=i).exists():
+                        gerarObj(i)
+            except:
+                pass
 
             messages.success(
                 request, 'Dados alterados com sucesso!')

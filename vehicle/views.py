@@ -178,11 +178,13 @@ def edit(request, slugParam):
             slugParam = edit.slug
 
             # atualizando os contratos de locacoes em andamento
-
-            for i in Location.objects.filter(id_vehicle=edit, status=True):
-                if Contract.objects.filter(id_location=i).exists():
-                    print("Existe locacao")
-                    gerarObj(i)
+            try:
+                for i in Location.objects.filter(id_vehicle=edit, status=True):
+                    if Contract.objects.filter(id_location=i).exists():
+                        print("Existe locacao")
+                        gerarObj(i)
+            except:
+                pass
 
             messages.success(
                 request, 'Dados alterados com sucesso com Sucesso')

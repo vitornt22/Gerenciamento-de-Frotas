@@ -15,9 +15,11 @@
 <div class="row">          
     {% for field in form.visible_fields  %}
         
+    {%if flag is False and field.label != "Empresa" %}
     <div class="col-md-4">
       {{field|as_crispy_field}}
-    </div>      
+    </div>    
+    {%endif%}  
     {% endfor %}
 </div>
 {%endblock formulario%}
@@ -27,10 +29,14 @@
 {%block funcoes %}
 <script>
 {%if flag is False%}
+document.getElementById('monthly_value').readOnly = true;    //to enable readonly
 document.getElementById('startLocationID').readOnly = true;    //to enable readonly
-{%else%}        
+{%else%}      
+document.getElementById('monthly_value').readOnly = true;    //to enable readonly
 document.getElementById('startLocationID').readOnly = false;    //to enable readonly
 {%endif%}
+
+
 
 
 {% for msg in messages %}

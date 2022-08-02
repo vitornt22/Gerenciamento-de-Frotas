@@ -71,6 +71,7 @@ class LocationEditForm(forms.ModelForm):
     start_location = forms.DateField(label="Inicio", input_formats=settings.DATE_INPUT_FORMATS,
                                      widget=forms.DateInput(format="%d/%m/%Y", attrs={'readOnly': False, 'id': 'startLocationID', 'data-mask': '99/99/9999'}))
     end_location = forms.DateField(label="Fim", required=False, input_formats=settings.DATE_INPUT_FORMATS, widget=forms.HiddenInput())  # noqa
+    monthly_value = forms.IntegerField(label="Valor Mensal",  widget=forms.NumberInput(attrs={'readOnly': False, 'id': 'monthly_value'}))  # noqa
 
     class Meta:
         model = Location
@@ -80,7 +81,6 @@ class LocationEditForm(forms.ModelForm):
             'start_location': 'Inicio',
             'end_location': 'Fim',
             'id_empresa': 'Empresa',
-            'monthly_value': 'Valor Mensal',
             'number_months': 'Nº de Meses'
         }
 
@@ -88,15 +88,12 @@ class LocationEditForm(forms.ModelForm):
             'id': forms.HiddenInput(),
             'empresa_name': forms.HiddenInput(),
             'id_vehicle': forms.HiddenInput(),
-            'id_empresa': forms.Select(attrs={'placeholder': 'id_empresa', 'class': 'form-control', 'id': 'id_empresa', 'required': 'True'}),  # noqa
+            'id_empresa': forms.Select(attrs={'readOnly': False, 'placeholder': 'id_empresa', 'class': 'form-control', 'id': 'id_empresa'}),  # noqa
             'number_months': forms.NumberInput(attrs={"placeholder": "Numero de meses",  'required': "True"}),
-            'monthly_value': forms.NumberInput(attrs={'placeholder': ' Valor Mensal', 'required': 'True'}),  # noqa
             'total_value': forms.HiddenInput(),
             'id_company': forms.    HiddenInput(),
             'status': forms.HiddenInput(),
             'can_remove': forms.HiddenInput(),
-
-
         }
 
     def clean_number_months(self):

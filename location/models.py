@@ -23,9 +23,9 @@ class Location(models.Model):
 
     end_location = models.DateField(null=True, blank=True)
     empresa_name = models.CharField(null=True, blank=True, max_length=100)
+    monthly_value = models.FloatField(null=False, blank=False)
     id_empresa = models.ForeignKey(
         Client_company, null=True, blank=False, on_delete=models.SET_NULL)
-    monthly_value = models.FloatField(null=False, blank=False)
     total_value = models.FloatField(blank=True, null=True)
     status = models.BooleanField(default=True)
     can_remove = models.BooleanField(default=True)

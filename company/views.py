@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
+from location.gerarPdf import gerarObj
+from location.models import Contract, Location
 
 from company.models import Company
 
@@ -54,8 +56,18 @@ def profile(request):
     if request.POST:
         form = CompanyForm(request.POST, instance=request.user)
         if form.is_valid():
-            form.save()
+            edit = form.save(commit=False)
+            edit.save()
             messages.success(request, "Dados da empresa Alterados")
+
+            # atualizando os contrato de locacoes em andamento
+            try:
+                for i in Location.objects.filter(id_company=edit, status=True):
+                    if Contract.objects.filter(id_location=i).exists():
+                        gerarObj(i)
+            except:
+                pass
+
         else:
             print('NAO E VALIDOOOO')
     return render(request, 'perfil.html', {'form': form, 'company': request.user})
