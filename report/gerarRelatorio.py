@@ -62,7 +62,6 @@ def line(pdf, obj, cont, categoria):
 
 def cabecalho(pdf, report):
 
-    img = STATIC_ROOT + '/dist/img/logoBranco.jpg'
     pdf.setStrokeColor(colors.black)
     pdf.rect(10, 775, 575, 60, stroke=1)
     pdf.drawImage(img, 20, 780, 110, 50)
