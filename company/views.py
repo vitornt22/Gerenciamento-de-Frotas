@@ -62,10 +62,13 @@ def profile(request):
 
             # atualizando os contrato de locacoes em andamento
             try:
+                print("ENTRANDOOOO")
                 for i in Location.objects.filter(id_company=edit, status=True):
                     if Contract.objects.filter(id_location=i).exists():
                         gerarObj(i)
+
             except:
+                print("NAO ESTA ENTRANDO")
                 pass
 
         else:
