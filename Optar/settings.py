@@ -31,9 +31,9 @@ SECRET_KEY = config('SECRET_KEY', 'INSECURE')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = config('DEBUG')
+DEBUG = True if config('DEBUG') == 1 else False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['wwww.optarlocacoes.com.br']
 
 
 # Application definition
