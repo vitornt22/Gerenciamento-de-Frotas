@@ -1,6 +1,6 @@
 {% load static%}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -26,6 +26,7 @@
               <h5 class="card-title text-center mb-5 fw-light fs-5"><img src="{% static 'dist/img/logo.png' %} " width=100%></h5>
               <form method='POST'>
                 {% csrf_token %}
+                {%csrf_token%}
                 <div class="form-floating mb-3">
                   <input name='cnpjValue' id="cnpjInput" type="text" class="form-control"  placeholder="name@example.com">
                   <label for="floatingInput">CNPJ da empresa</label>
@@ -44,7 +45,7 @@
                 <hr class="my-4">
                 
                 <div class="d-grid mb-2">
-                  <button class="btn fw-bold" type="submit">
+                  <button class="btn fw-bold" type="button">
                     <i><br></i>
                     <!--ESQUECEU A SENHA
                     <i name='forget_password' class="fab fa-google me-2"></i> Esqueceu sua senha?
