@@ -33,7 +33,7 @@ SECRET_KEY = config('SECRET_KEY', 'INSECURE')
 
 DEBUG = True if config('DEBUG') == 1 else False
 
-ALLOWED_HOSTS = ['wwww.optarlocacoes.com.br']
+ALLOWED_HOSTS = ['optarlocacoes.com.br', 'www.optarlocacoes.com.br']
 
 
 # Application definition
