@@ -63,7 +63,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://*.optarlocacoes.com', 'https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://www.optarlocacoes.com.br',
+                        'https://optarlocacoes.com.br', 'https://*.127.0.0.1']
 
 
 ROOT_URLCONF = 'Optar.urls'
