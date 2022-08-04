@@ -4,6 +4,7 @@ from client_Company.models import Client_company
 from company.models import Company
 from dateutil.relativedelta import relativedelta
 from django.db import models
+from django.forms import CharField
 from django.urls import reverse
 from Optar import settings
 from vehicle.models import Vehicle
@@ -14,6 +15,7 @@ from vehicle.models import Vehicle
 class Location(models.Model):
 
     id = models.BigAutoField(primary_key=True)
+    slug_vehicle = models.SlugField(blank=True, null=True)
     id_company = models.ForeignKey(
         Company, on_delete=models.SET_NULL, null=True, blank=True)
     id_vehicle = models.ForeignKey(
@@ -35,6 +37,7 @@ class Location(models.Model):
         self.total_value = self.monthly_value * self.number_months
         self.empresa_name = self.id_empresa.name + \
             " - "+str(self.id_empresa.cnpj)
+        self.slug_vehicle = self.id_vehicle.slug
         return super().save(*args, **kwargs)
 
     def __str__(self):

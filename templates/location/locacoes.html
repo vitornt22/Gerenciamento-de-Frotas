@@ -34,24 +34,24 @@
         <td><span class="tag tag-success">R$ {{i.total_value}}</span></td>
     
         <td>
-        {%if i.can_remove is True and i.id_vehicle.slug != None %}
+        {%if i.can_remove is True and i.id_vehicle%}
         <a  id="areSure" href="{%url  removeTag i.id_vehicle.slug i.id%}" class="areSure btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir">
             <i class="fa-solid fa-trash-can"></i>
         </a>
         {%else%}
-        <a  id="areSure" href="{%url  removeTag i.id_vehicle.slug i.id%}"  class=" disabled areSure btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir">
+        <a  id="areSure" class=" disabled areSure btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Excluir">
             <i class="fa-solid fa-trash-can"></i>
         </a>
         {%endif%}
         
 
         
-        {% if i.status is True and i.id_vehicle.slug != None %}
+        {% if i.status is True and i.id_vehicle%}
         <a  href="{%url editTag i.id_vehicle.slug i.id %}" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Editar">
             <i class="fa-solid fa-pen-to-square"></i>
         </a>
     {%else%}
-        <a  href="{%url editTag i.id_vehicle.slug i.id %}" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Editar">
+        <a class="disabled btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Editar">
         <i class="fa-solid fa-pen-to-square"></i>
         </a>
     {%endif%}
@@ -63,10 +63,10 @@
     <a   href="{%url 'location:pdf' i.id %} " name="download" value ="{{i.id}}" class="wantPay btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Baixar Contrato !">
         <i class="fa-solid fa-cloud-arrow-down"></i>                      </a>
     
-    {% if i.id_empresa %}
-    <a   href="{%url 'location:email' i.id_vehicle.slug  i.id_empresa.id i.id %} " name="email" value ="{{i.id}}" class="wantPay btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Envia email">
+    {% if i.id_empresa%}
+    <a   href="{%url 'location:email' i.slug_vehicle i.id_empresa.id i.id %} " name="email" value ="{{i.id}}" class="wantPay btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Envia email">
      {%else%}
-     <a   disabled href="" name="email" value ="{{i.id}}" class="wantPay btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Empresa Excluida">
+     <a    name="email" value ="{{i.id}}" class="disabled wantPay btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Empresa Excluida">
     {%endif%}
         <i class="fa-solid fa-at"></i>                     
     </a>
@@ -88,6 +88,11 @@
 
 {%block funcoes%}
     <script>
+        $(document).on('click', '.areSure', function(){
+            return confirm("Tem certeza que deseja deletar ?")
+        });
+    </script>
+    <script>
     
     {% for msg in messages%}
     {% if msg.tags == "message-sucess" %}
@@ -102,9 +107,7 @@
         button: "ok"})
     {% endfor %}
 
-    $(document).on('click', '.areSure', function(){
-        return confirm("Tem certeza que deseja deletar ?")
-    });
+    
 
     document.getElementById("voltar").onclick= function(){
     {% if prev == "location:locations"%}
