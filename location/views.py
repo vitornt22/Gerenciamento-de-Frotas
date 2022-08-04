@@ -131,7 +131,7 @@ def edit(request, slugParam, id):
 
                 if Location.objects.filter(id_company=request.user, id_vehicle=vehicle, start_location__lte=edit.start_location, end_location__gte=edit.start_location).exclude(id=id).exists():  # noqa
                     messages.error(request, 'Data já existe!')
-                    return redirect('location:edit', slugParam, id)
+                    return redirect(path, slugParam, id)
 
             if edit.number_months < pagos:
                 messages.error(
@@ -143,7 +143,8 @@ def edit(request, slugParam, id):
                 removeGains(last_date, edit.start_location +
                             relativedelta(months=edit.number_months), edit, request.user)
                 edit.save()
-                return redirect('location:edit', slugParam, id)
+                messages.success(request, 'Gasto editado com sucesso')
+                return redirect(path, slugParam, id)
             elif edit.number_months > pagos:
 
                 if edit.number_months > anterior:
@@ -159,7 +160,7 @@ def edit(request, slugParam, id):
                 edit.save()
 
                 messages.success(request, 'Gasto editado com sucesso')
-                return redirect('location:edit', slugParam, id)
+                return redirect(path, slugParam, id)
 
     return render(request, 'location/EditarLocacao.html', {'active': active, 'flag': flag, 'path': path, 'name': 'location', 'tag2': tag2, 'prev': prev, 'name': 'Locação', 'id': id, 'slug': slugParam, 'vehicle': vehicle, 'form': locationForm})
 
