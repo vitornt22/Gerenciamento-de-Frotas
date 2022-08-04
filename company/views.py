@@ -73,4 +73,4 @@ def profile(request):
 
         else:
             print('NAO E VALIDOOOO')
-    return render(request, 'perfil.html', {'form': form, 'company': request.user})
+    return render(request, 'perfil.html', {'active': 5, 'form': form, 'company': request.user})

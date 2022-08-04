@@ -90,8 +90,8 @@ def edit(request, slugParam, id):
     print("1: ", loc)
     print("1 Veiuclo:", vehicle)
 
-    locationForm = LocationEditForm(instance=loc)
     pagos = Gain.objects.filter(id_location=id, it_paid=True).count()
+    locationForm = LocationEditForm(instance=loc)
 
     if pagos == 0:
         flag = True
@@ -113,13 +113,15 @@ def edit(request, slugParam, id):
     anterior = locationForm['number_months'].value()
     last_date = loc.end_location
     current_date = loc.start_location
+    print("CURRENT DATA: ", current_date)
 
     if request.POST:
 
+        print("INIOOOU,", request.POST.get('inicio'))
         locationForm = LocationEditForm(request.POST, instance=loc)
 
         if locationForm.is_valid():
-            print("FORM IS VALID")
+
             edit = locationForm.save(commit=False)
             edit.id_vehicle = vehicle
             edit.id_company = request.user

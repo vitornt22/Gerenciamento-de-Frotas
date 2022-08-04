@@ -33,10 +33,10 @@ SECRET_KEY = config('SECRET_KEY', 'INSECURE')
 
 DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = ['optarlocacoes.com.br', 'www.optarlocacoes.com.br']
+ALLOWED_HOSTS = ['*', 'optarlocacoes.com.br', 'www.optarlocacoes.com.br']
 
 
-# Application definition
+# Application def4inition
 
 INSTALLED_APPS = [
     'fontawesomefree',
