@@ -46,7 +46,7 @@ def listar(request):
     # CONSERTAR ESSA PARTE DO CÓDIGO
     tabela = Client_company.objects.all()
 
-    number = tabela.count()
+    number = Client_company.objects.all().count()
     data = None
 
     if request.POST.get('inputSearch'):
