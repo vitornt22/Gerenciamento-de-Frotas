@@ -35,7 +35,8 @@ class LocationForm(forms.ModelForm):
             'number_months': forms.NumberInput(attrs={"placeholder": "Numero de meses",  'required': "True"}),
             'monthly_value': forms.NumberInput(attrs={'placeholder': ' Valor Mensal', 'required': 'True'}),  # noqa
             'total_value': forms.HiddenInput(),
-            'id_company': forms.    HiddenInput(),
+            'id_company': forms.HiddenInput(),
+            'slug_vehicle': forms.HiddenInput(),
             'status': forms.HiddenInput(),
             'can_remove': forms.HiddenInput(),
 
