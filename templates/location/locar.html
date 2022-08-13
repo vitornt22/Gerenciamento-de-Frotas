@@ -22,10 +22,20 @@
               <div class="row">
                 {% for field in form.visible_fields  %}
                   <div class="col-md-3">
+                    {% if field.label == "Empresa" %}
+                    <label for="empresas">Empresas:</label>
+
+                    <select id="empresas" class="form-control" name="empresas">
+                      {%for i in companies %}
+                        <option value={{i.id}}>{{i}}</option>
+                      {%endfor%}
+                    </select>
+                    {%else%}
                     {{ field|as_crispy_field }}
+                    {%endif%}
                     <datalist id="datalistOptions">
                       {% for i in types %}
-                        <option value={{i}}>{{i }}
+                        <option value={{i}}>{{i}}
                         </option>
                       {% endfor %}
                     </datalist>

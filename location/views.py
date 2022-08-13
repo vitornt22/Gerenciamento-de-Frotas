@@ -264,6 +264,7 @@ def remove(request, slugParam, id):
 @ login_required(login_url='company:login', redirect_field_name='next')
 def locar(request, slugParam, profileParam):
     vehicle = Vehicle.objects.get(company_user=request.user, slug=slugParam)
+    companies = Client_company.objects.filter(company_user=request.user)
 
     if request.POST:
         form = LocationForm(request.POST)
@@ -271,6 +272,10 @@ def locar(request, slugParam, profileParam):
         if form.is_valid():
             register = form.save(commit=False)
             register.id_vehicle = vehicle
+            idEmpresa = request.POST.get('empresas')
+            print("IDEMPRESA", idEmpresa)
+            register.id_empresa = Client_company.objects.get(id=idEmpresa)
+            print("REGISTER.ID_empresa: ", register.id_empresa)
             register.id_company = request.user
             register.slug_vehicle = vehicle.slug
             register.status = True  # em andamento e pode ser editado
@@ -289,7 +294,7 @@ def locar(request, slugParam, profileParam):
     else:
         form = LocationForm()
 
-    return render(request, 'location/locar.html', {'active': 1, 'flag': False, 'vehicle': vehicle,  'form': form, 'profile': profileParam, 'slug': slugParam})
+    return render(request, 'location/locar.html', {'companies': companies, 'active': 1, 'flag': False, 'vehicle': vehicle,  'form': form, 'profile': profileParam, 'slug': slugParam})
 
 
 @ login_required(login_url='company:login', redirect_field_name='next')
