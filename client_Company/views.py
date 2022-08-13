@@ -43,7 +43,8 @@ def register_Company(request, id):
 
 @ login_required(login_url='company:login', redirect_field_name='next')
 def listar(request):
-    tabela = Client_company.objects.filter()
+    # CONSERTAR ESSA PARTE DO CÓDIGO
+    tabela = Client_company.objects.all()
 
     number = Client_company.objects.filter(
         company_user=request.user).count()
