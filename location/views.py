@@ -341,8 +341,15 @@ def enviarEmail(request, slugParam, empresa, id):
 
     # ENVIANDO EMAIL
 
-    server.sendmail(email_msg['From'], email_msg['To'], email_msg.as_string())
-    server.quit()
+    try:
+        server.sendmail(email_msg['From'],
+                        email_msg['To'], email_msg.as_string())
+        server.quit()
+        messages.success(request, 'email enviado com sucesso')
+
+    else:
+        messages.error(
+            request, 'Nao foi possivel enviar o email, tende novamente')
     return redirect('location:allLocations')
 
 
