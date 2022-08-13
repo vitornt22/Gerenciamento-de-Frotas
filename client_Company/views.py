@@ -45,11 +45,10 @@ def register_Company(request, id):
 def listar(request):
     tabela = Client_company.objects.filter(
         company_user=request.user)
-    try:
-        number = Client_company.objects.filter(
-            company_user=request.user).count()
-    except:
-        number = 0
+
+    number = Client_company.objects.filter(
+        company_user=request.user).count()
+
     data = None
 
     if request.POST.get('inputSearch'):
