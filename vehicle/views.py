@@ -28,16 +28,19 @@ from .models import Vehicle, Vehicle_Types
 def check_dates(vehicle, request):
 
     # Checando locações que chegaram ao fim na data corrente
-    for i in vehicle:
-        loc = Location.objects.filter(
-            id_company=request.user, id_vehicle=i, status=True)
-        for j in loc:
-            if j.end_location == datetime.date.today():
-                j.status = False
-                j.can_remove = False
-                i.it_location = False
-                j.save()
-                i.save()
+    try:
+        for i in vehicle:
+            loc = Location.objects.filter(
+                id_company=request.user, id_vehicle=i, status=True)
+            for j in loc:
+                if j.end_location == datetime.date.today():
+                    j.status = False
+                    j.can_remove = False
+                    i.it_location = False
+                    j.save()
+                    i.save()
+    except:
+        pass
 
 
 @login_required(login_url='company:login', redirect_field_name='next')

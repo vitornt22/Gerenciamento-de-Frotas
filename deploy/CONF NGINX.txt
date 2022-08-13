@@ -10,6 +10,9 @@ DOMINIO= DOMINIO OU IP DO SERVIDOR
 #CRIANDO ARQUIVO PARA SITES DISPONIVEIS 
 sudo nano /etc/nginx/sites-available/NOMEPASTA
 
+#FALHA NGINX
+sudo systemctl stop apache2 && sudo systemctl restart nginx && sudo systemctl status nginx
+
 #COPIANDO ARQUIVO PARA SITES ATIVADOS
 sudo ln -s /etc/nginx/sites-available/myproject /etc/nginx/sites-enabled
 rm 
