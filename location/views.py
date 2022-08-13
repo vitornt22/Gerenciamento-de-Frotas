@@ -272,6 +272,7 @@ def locar(request, slugParam, profileParam):
             register = form.save(commit=False)
             register.id_vehicle = vehicle
             register.id_company = request.user
+            register.slug_vehicle = vehicle.slug
             register.status = True  # em andamento e pode ser editado
             register.can_remove = True  # Pode ser removido
             register.save()
