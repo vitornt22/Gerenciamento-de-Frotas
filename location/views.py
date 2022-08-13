@@ -347,7 +347,7 @@ def enviarEmail(request, slugParam, empresa, id):
         server.quit()
         messages.success(request, 'email enviado com sucesso')
 
-    else:
+    except:
         messages.error(
             request, 'Nao foi possivel enviar o email, tende novamente')
     return redirect('location:allLocations')
