@@ -53,8 +53,8 @@ def listar(request):
     data = request.GET.get('inputSearch')
     if data:
         tabela = Client_company.objects.filter(
-            Q(company_user=request.user) & Q(Q(name__icontains=data) | Q(cnpj__icontains=data) | Q(
-                email__icontains=data) | Q(city__icontains=data) | Q(state__icontains=data) | Q(adress__icontains=data)))
+            Q(company_user=request.user) & Q(Q(name__icontains=data) | Q(cnpj__icontains=data) | Q(  # noqa
+                email__icontains=data) | Q(city__icontains=data) | Q(state__icontains=data) | Q(adress__icontains=data)))  # noqa
 
         if tabela.count() == 0:
             tabela = None
