@@ -5,6 +5,7 @@ from client_Company.forms import Client_CompanyForm
 from dateutil.relativedelta import relativedelta
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils.text import slugify
@@ -45,8 +46,6 @@ def check_dates(vehicle, request):
 
 @login_required(login_url='company:login', redirect_field_name='next')
 def index(request):
-    print("DEBUGG", varoptar.DEBUG)
-    print("DATABASE", varoptar.DATABASES['default']['ENGINE'])
     vehicle = Vehicle.objects.filter(company_user=request.user)
     check_dates(vehicle, request)
     tabela = Vehicle.objects.filter(
@@ -54,33 +53,17 @@ def index(request):
     number = Vehicle.objects.filter(company_user=request.user).count()
     resultados = None
 
-    if request.POST.get("inputSearch"):
-        valida = request.POST.get("inputSearch")
+    if request.GET.get("inputSearch"):
+        valida = request.GET.get("inputSearch")
         resultados = valida
         print("VALIDAA: ", valida)
 
-        if Vehicle.objects.filter(company_user=request.user, vehicle_type__iexact=valida).exists():
-            tabela = Vehicle.objects.filter(
-                company_user=request.user, vehicle_type__iexact=valida).order_by('-created_at')
-            print("EXISTE O TIPO")
-        elif Vehicle.objects.filter(company_user=request.user, vehicle_model__iexact=valida).exists():
-            tabela = Vehicle.objects.filter(
-                company_user=request.user, vehicle_model__iexact=valida).order_by('-created_at')
-        elif Vehicle.objects.filter(company_user=request.user, year__iexact=valida).exists():
-            tabela = Vehicle.objects.filter(
-                company_user=request.user, year=valida)
-        elif Vehicle.objects.filter(company_user=request.user,  brand__iexact=valida).exists():
-            tabela = Vehicle.objects.filter(
-                company_user=request.user, brand__iexact=valida).order_by('-created_at')
-        elif Vehicle.objects.filter(company_user=request.user,  chassi__iexact=valida).exists():
-            tabela = Vehicle.objects.filter(
-                company_user=request.user, chassi__iexact=valida).order_by('-created_at')
-        elif Vehicle.objects.filter(company_user=request.user,  license_plate__iexact=valida).exists():
-            tabela = Vehicle.objects.filter(
-                company_user=request.user, license_plate__iexact=valida).order_by('-created_at')
-        elif len(valida) > 0:
-            tabela = None
-            resultados = None
+        if len(valida) > 0:
+            tabela = Vehicle.objects.filter(Q(company_user=request.user) & Q(Q(vehicle_type__icontains=valida) | Q(vehicle_model__icontains=valida) | Q(  # noqa
+                year__icontains=valida) | Q(brand__icontains=valida) | Q(chassi__icontains=valida) | Q(license_plate__icontains=valida))).order_by('-created_at')  # noqa
+            if tabela.count() == 0:
+                tabela = None
+                resultados = None
         else:
             tabela = Vehicle.objects.filter(company_user=request.user)
 

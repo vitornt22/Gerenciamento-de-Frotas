@@ -34,9 +34,9 @@
         </div>
         <div class="col-lg-9">
           <div class="card-tools">
-            <form method="POST" class="input-group input-group-sm" style="width: 150;">
+            <form method="GET" class="input-group input-group-sm" style="width: 150;">
               {% csrf_token %}
-              <input type="input" name="inputSearch" class="form-control float-right" placeholder="Pesquisar">
+              <input type="input" name="inputSearch" class="form-control float-right" placeholder="Pesquisar {{info}}">
 
               <div class="input-group-append">
                 <button type="submit" name="" class="btn btn-default">

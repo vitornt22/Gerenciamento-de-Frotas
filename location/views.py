@@ -49,34 +49,20 @@ def locations(request, slugParam):
     editTag = "location:edit"
     portionTag = "gains:portions"
     finished = Location.objects.filter(id_vehicle=vehicle, status=False)
-    try:
-        if request.POST.get('inputSearch'):
-            data = request.POST.get('inputSearch')
 
-            if Location.objects.filter(id_vehicle=vehicle, start_location__icontains=data).exists():
-                tabela = Location.objects.filter(id_vehicle=vehicle,
-                                                 start_location__icontains=data)
-            elif Location.objects.filter(id_vehicle=vehicle, end_location__icontains=data).exists():
-                tabela = Location.objects.filter(id_vehicle=vehicle,
-                                                 end_location__icontains=data)
-            elif Location.objects.filter(id_vehicle=vehicle, id_empresa=data).exists():
-                tabela = Location.objects.filter(id_vehicle=vehicle,
-                                                 id_empresa=data)
-            elif Location.objects.filter(id_vehicle=vehicle, total_value__icontains=data).exists():
-                tabela = Location.objects.filter(id_vehicle=vehicle,
-                                                 total_value__icontains=data)
-            elif Location.objects.filter(id_vehicle=vehicle, number_months__icontains=data).exists():
-                tabela = Location.objects.filter(id_vehicle=vehicle,
-                                                 number_months__icontains=data)
-            elif Location.objects.filter(id_vehicle=vehicle, id__icontains=data).exists():
-                tabela = Location.objects.filter(id_vehicle=vehicle,
-                                                 id__icontains=data)
+    data = request.GET.get('inputSearch')
+    if data:
+
+        if len(data) > 0:
+            if data.isdigit():
+                tabela = Location.objects.filter(Q(id_company=request.user) & Q(Q(  # noqa
+                    Q(total_value__icontains=data) | Q(number_months=int(data)) | Q(id__iexact=data)))).order_by('-start_location')  # noqa
             else:
+                tabela = Location.objects.filter(Q(id_company=request.user) & Q(Q(start_location__icontains=data) | Q(end_location__icontains=data) | Q(  # noqa
+                    empresa_name__icontains=data))).order_by('-start_location')  # noqa
+            if tabela.count() == 0:
                 tabela = None
                 data = None
-    except:
-        tabela = None
-        data = None
 
     return render(request, 'location/locacoes.html', {'active': 1, 'prev': 'location:locations', 'removeTag': removeTag, 'include': 1, 'portionTag': portionTag, 'editTag': editTag, 'finished': finished, 'tag': tag, 'number': number, 'resultados': data, 'slug': slugParam, 'vehicle': vehicle,  'tabela': tabela})  # noqa
 
@@ -194,39 +180,26 @@ def loc(request):
     editTag = 'location:editAll'
     portionTag = 'gains:allPortions'
     finished = Location.objects.filter(id_company=request.user, status=False)
+    info = "(formato de data yyyy-mm-dd)"
 
-    if request.POST.get('inputSearch'):
-        data = request.POST.get('inputSearch')
-        try:
-            if Location.objects.filter(id_company=request.user, start_location__icontains=data).exists():
-                tabela = Location.objects.filter(id_company=request.user,
-                                                 start_location__icontains=data).order_by('-start_location')
-            elif Location.objects.filter(id_company=request.user, end_location__icontains=data).exists():
-                tabela = Location.objects.filter(id_company=request.user,
-                                                 end_location__icontains=data).order_by('-start_location')
-            elif Location.objects.filter(id_company=request.user, id_empresa=data).exists():
-                tabela = Location.objects.filter(id_company=request.user,
-                                                 id_empresa=data).order_by('-start_location')
-            elif Location.objects.filter(id_company=request.user, total_value__icontains=data).exists():
-                tabela = Location.objects.filter(id_company=request.user,
-                                                 total_value__icontains=data).order_by('-start_location')
-            elif Location.objects.filter(id_company=request.user, number_months__icontains=data).exists():
-                tabela = Location.objects.filter(id_company=request.user,
-                                                 number_months__icontains=data).order_by('-start_location')
-            elif Location.objects.filter(id_company=request.user, id__icontains=data).exists():
-                tabela = Location.objects.filter(id_company=request.user,
-                                                 id__icontains=data).order_by('-start_location')
+    if request.GET.get('inputSearch'):
+        data = request.GET.get('inputSearch')
+
+        if len(data) > 0:
+            if data.isdigit():
+                tabela = Location.objects.filter(Q(id_company=request.user) & Q(Q(  # noqa
+                    Q(total_value__icontains=data) | Q(number_months=int(data)) | Q(id__iexact=data)))).order_by('-start_location')  # noqa
             else:
+                tabela = Location.objects.filter(Q(id_company=request.user) & Q(Q(start_location__icontains=data) | Q(end_location__icontains=data) | Q(  # noqa
+                    empresa_name__icontains=data))).order_by('-start_location')  # noqa
+            if tabela.count() == 0:
                 tabela = None
                 data = None
-        except:
-            tabela = None
-            data = None
 
-    return render(request,  'location/locacoes.html', {'active': 2, 'include': 2, 'prev': 'location:allLocations', 'removeTag': removeTag, 'portionTag': portionTag, 'editTag': editTag, 'finished': finished, 'tag': tag, 'number': number, 'resultados': data, 'slug': None, 'vehicle': vehicle,  'tabela': tabela})
+    return render(request,  'location/locacoes.html', {'active': 2, 'include': 2, 'prev': 'location:allLocations', 'info': info, 'removeTag': removeTag, 'portionTag': portionTag, 'editTag': editTag, 'finished': finished, 'tag': tag, 'number': number, 'resultados': data, 'slug': None, 'vehicle': vehicle,  'tabela': tabela})
 
 
-@login_required(login_url='company:login', redirect_field_name='next')
+@ login_required(login_url='company:login', redirect_field_name='next')
 def remove(request, slugParam, id):
 
     vehicle = Vehicle.objects.get(company_user=request.user, slug=slugParam)
@@ -351,36 +324,3 @@ def enviarEmail(request, slugParam, empresa, id):
         messages.error(
             request, 'Nao foi possivel enviar o email, tende novamente')
     return redirect('location:allLocations')
-
-
-'''
-@ login_required(login_url='company:login', redirect_field_name='next')
-def enviarEmail(request, slugParam, id):
-
-    # empresa = Client_company.objects.get(company_user=request.user, id=id)
-    corpo_email = """
-    <p>Parágrafo1</p>
-     Olá, esse é o contrato de locação para sua empresa.
-    <p>Parágrafo2</p>
-    """
-    msg = MIMEMultipart()
-    msg['Subject'] = "Contrato de locação"
-    msg['From'] = 'vitornt434@gmail.com'
-    msg['To'] = 'memorizephotos@gmail.com'
-    msg['Date'] = datetime.date.today()
-    password = 'gzhzkyywxlzjadpj'
-    msg.add_header('Content-Type', 'text/html')
-    msg.attach(FileResponse(p, as_attachment=True, filename='Locação.pdf'))
-
-    msg.set_payload(corpo_email)
-
-    s = smtplib.SMTP('smtp.gmail.com: 587')
-    s.starttls()
-    # Login Credentials for sending the mail
-    s.login(msg['From'], password)
-    s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
-    print('Email enviado')
-    s.quit()
-    return HttpResponse('olá')
-
-'''

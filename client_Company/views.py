@@ -1,6 +1,7 @@
 from company.models import Company
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 from location.forms import LocationForm
 from location.gerarPdf import gerarObj
@@ -48,37 +49,16 @@ def listar(request):
 
     number = Client_company.objects.filter(
         company_user=request.user).count()
-    data = None
 
-    if request.POST.get('inputSearch'):
-        data = request.POST.get('inputSearch')
+    data = request.GET.get('inputSearch')
+    if data:
+        tabela = Client_company.objects.filter(
+            Q(company_user=request.user) & Q(Q(name__icontains=data) | Q(cnpj__icontains=data) | Q(
+                email__icontains=data) | Q(city__icontains=data) | Q(state__icontains=data) | Q(adress__icontains=data)))
 
-        try:
-            if Client_company.objects.filter(company_user=request.user, name__icontains=data).exists():
-                tabela = Client_company.objects.filter(company_user=request.user,
-                                                       name__icontains=data)
-            elif Client_company.objects.filter(company_user=request.user, cnpj__icontains=data).exists():
-                tabela = Client_company.objects.filter(company_user=request.user,
-                                                       cnpj__icontains=data)
-            elif Client_company.objects.filter(company_user=request.user, email__icontains=data).exists():
-                tabela = Client_company.objects.filter(company_user=request.user,
-                                                       email__icontains=data)
-            elif Client_company.objects.filter(company_user=request.user, city__icontains=data).exists():
-                tabela = Client_company.objects.filter(company_user=request.user,
-                                                       city__icontains=data)
-            elif Client_company.objects.filter(company_user=request.user, state__icontains=data).exists():
-                tabela = Client_company.objects.filter(company_user=request.user,
-                                                       state__icontains=data)
-            elif Client_company.objects.filter(company_user=request.user, adress__icontains=data).exists():
-                tabela = Client_company.objects.filter(company_user=request.user,
-                                                       adress__icontains=data)
-            else:
-                tabela = None
-                data = None
-        except:
+        if tabela.count() == 0:
             tabela = None
             data = None
-
     return render(request,  'clientes/empresas.html', {'active': 4, 'tag': 'empresas', 'number': number, 'resultados': data, 'tabela': tabela})
 
 
