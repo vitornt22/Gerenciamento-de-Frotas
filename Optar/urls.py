@@ -20,14 +20,14 @@ from django.urls import include, path
 
 urlpatterns = [
     path('', include('siteApp.urls')),
-    path('Admin', include('company.urls')),
-    path('Admin/areaVitor/', admin.site.urls),
-    path('Admin/Empresas/', include('client_Company.urls')),
-    path('Admin/veiculos/', include('vehicle.urls')),
-    path('Admin/locacoes/', include('location.urls')),
-    path('Admin/ganhos/', include('gain.urls')),
-    path('Admin/relatórios/', include('report.urls')),
-    path('Admin/gastos/', include('spent.urls')),
+    path('admin', include('company.urls')),
+    path('admin/areaVitor/', admin.site.urls),
+    path('admin/Empresas/', include('client_Company.urls')),
+    path('admin/veiculos/', include('vehicle.urls')),
+    path('admin/locacoes/', include('location.urls')),
+    path('admin/ganhos/', include('gain.urls')),
+    path('admin/relatórios/', include('report.urls')),
+    path('admin/gastos/', include('spent.urls')),
 ]
 
-#urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
