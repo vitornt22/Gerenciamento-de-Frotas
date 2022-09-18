@@ -15,4 +15,4 @@ def aboutUs(request):
 
 
 def vehicles(request):
-    return render(request, 'site/typography.html')
+    return render(request, 'site/vehicles.html')
