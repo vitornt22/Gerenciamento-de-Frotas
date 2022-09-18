@@ -8200,7 +8200,7 @@ html:not(.lt-ie10) .not-animated {
 	border-radius: 50%;
 	border-left-color: #e0e6ea;
 	border-bottom-color: #e0e6ea;
-	animation: cssload-spin .88s infinite linear;
+	animation: cssload-spin .0s infinite linear;
 }
 
 @-webkit-keyframes cssload-spin {
