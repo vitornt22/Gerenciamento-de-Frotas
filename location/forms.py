@@ -1,5 +1,4 @@
 import datetime
-import re
 from unittest.util import _MAX_LENGTH
 
 from django import forms

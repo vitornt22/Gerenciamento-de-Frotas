@@ -1,7 +1,7 @@
-import re
 
+# flake8: noqa: E501
 from django import forms
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+from django.contrib.auth.forms import UserChangeForm
 from django.core.exceptions import ValidationError
 
 from .models import Company
@@ -62,7 +62,7 @@ class CompanyForm(UserChangeForm):
         number = self.cleaned_data.get('phone')
         print(number)
 
-        if len(number) < 15 or number == None:
+        if len(number) < 15 or number is None:
             raise ValidationError((
                 'Telefone Invalido'
             ),

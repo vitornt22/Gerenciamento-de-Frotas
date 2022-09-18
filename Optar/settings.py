@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
 import os
 import smtplib
 from pathlib import Path
@@ -48,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # my apps
     'vehicle', 'report', 'spent', 'gain', 'location', 'company', 'client_Company',
-    'crispy_bootstrap5',
+    'crispy_bootstrap5', 'siteApp',
     'crispy_forms'
 
 ]

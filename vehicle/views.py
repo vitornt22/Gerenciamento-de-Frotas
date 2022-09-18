@@ -1,5 +1,4 @@
 import datetime
-from operator import add
 
 from client_Company.forms import Client_CompanyForm
 from dateutil.relativedelta import relativedelta
@@ -57,6 +56,7 @@ def index(request):
         valida = request.GET.get("inputSearch")
         resultados = valida
         print("VALIDAA: ", valida)
+        self.license_plate = self.license_plate.upper()
 
         if len(valida) > 0:
             tabela = Vehicle.objects.filter(Q(company_user=request.user) & Q(Q(vehicle_type__icontains=valida) | Q(vehicle_model__icontains=valida) | Q(  # noqa
