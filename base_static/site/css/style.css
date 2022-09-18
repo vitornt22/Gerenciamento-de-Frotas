@@ -1789,7 +1789,7 @@ img {
 	display: inline-block;
 	font-weight: 400;
 	font-style: normal;
-	speak: none;
+	speak-as: none;
 	text-transform: none;
 }
 
@@ -4888,7 +4888,7 @@ a.thumbnail-thin {
 
 .snackbars-right {
 	display: inline-block;
-	float: right;
+	float: none;
 	text-transform: uppercase;
 }
 
@@ -7457,14 +7457,12 @@ html [class*='section-'].section-bottom-0 {
 
 .bg-gray-950.footer-classic .counter {
 	background: linear-gradient(to right, #228733, #ff923d);
-	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
 [class*='ie-'] .bg-gray-950.footer-classic .counter {
 	color: #228733;
 	background: transparent;
-	-webkit-background-clip: text;
 	-webkit-text-fill-color: #228733;
 }
 
@@ -9856,9 +9854,7 @@ html.tablet .ui-to-top {
 }
 
 /* Coverflow */
-.swiper-container-coverflow .swiper-wrapper {
-	/* Windows 8 IE 10 fix */
-}
+
 
 .swiper-container-fade.swiper-container-free-mode .swiper-slide {
 	transition-timing-function: ease-out;
@@ -11224,14 +11220,12 @@ html.tablet .ui-to-top {
 
 .icon.counter-modern-icon:before {
 	background: linear-gradient(to right, #228733, #ff923d);
-	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
 [class*='ie-'] .icon.counter-modern-icon:before {
 	color: #228733;
 	background: transparent;
-	-webkit-background-clip: text;
 	-webkit-text-fill-color: #228733;
 }
 
@@ -11533,7 +11527,6 @@ html.tablet .ui-to-top {
 
 .owl-carousel .owl-stage {
 	position: relative;
-	-ms-touch-action: pan-Y;
 }
 
 .owl-carousel .owl-stage:after {
@@ -11549,7 +11542,6 @@ html.tablet .ui-to-top {
 	position: relative;
 	overflow: hidden;
 	/* fix for flashing background */
-	-webkit-transform: translate3d(0px, 0px, 0px);
 }
 
 .owl-carousel .owl-controls .owl-nav .owl-prev,
@@ -12001,7 +11993,7 @@ html.tablet .ui-to-top {
 
 .lg-icon {
 	font-family: lg;
-	speak: none;
+	speak-as: none;
 	font-style: normal;
 	font-weight: 400;
 	font-variant: normal;
@@ -13000,7 +12992,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 
 .lg-icon {
 	font-family: lg;
-	speak: none;
+	speak-as: none;
 	font-style: normal;
 	font-weight: 400;
 	font-variant: normal;
