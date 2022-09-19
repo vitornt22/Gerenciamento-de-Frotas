@@ -4624,10 +4624,11 @@ a.thumbnail-thin {
 /*
 * Breadcrumbs
 */
+
 .breadcrumbs-custom {
 	position: relative;
 	overflow: hidden;
-	background: url("../images/aboutBanner.png") center;
+	background: url("../images/banner.png") center;
 	background-size: cover;
 }
 
