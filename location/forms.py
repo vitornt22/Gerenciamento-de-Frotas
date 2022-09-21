@@ -44,7 +44,6 @@ class LocationForm(forms.ModelForm):
 
     def clean_start_location(self):
         date = self.cleaned_data.get('start_location')
-        edit = self.cleaned_data.get('total_value')
         hoje = datetime.date.today()
 
         if date < hoje:

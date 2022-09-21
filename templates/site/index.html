@@ -24,10 +24,17 @@
         </div>
       </div>
     </div>
+    <div style="background-color:#09207F; height:100px;" class=''>
+      <div  class="text-right">
+        <img src="{%static 'site/images/bannerPropaganda.png' %}" >
+      </div>
+    </div>
     <div class="">
       <!-- Page Header-->
-      <header class="page-header">
+
+      <header  class="page-header">
         <!-- RD Navbar-->
+      
         <div class="rd-navbar-wrap">
           <nav  class="rd-navbar rd-navbar-classic" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-lg-stick-up-offset="46px" data-xl-stick-up-offset="46px" data-xxl-stick-up-offset="46px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
             <div class="rd-navbar-main-outer">
@@ -62,7 +69,7 @@
         <!-- Swiper-->
         <div class="swiper-container swiper-slider swiper-slider-1" data-loop="false" data-autoplay="5000" data-simulate-touch="false">
           <div class="swiper-wrapper">
-            <div class="swiper-slide" data-slide-bg="{%static 'site/images/trator.png' %}">
+            <div class="swiper-slide" data-slide-bg="{%static 'site/images/capaOptar.png' %}">
               <div class="swiper-slide-caption context-dark">
                 <div class="container">
                   <div class="row">
@@ -71,14 +78,14 @@
                         <h6 data-caption-animate="slideInLeft" data-caption-delay="150">Na OPTAR LOCAÇÕES</h6>
                         <h2 data-caption-animate="slideInLeft" data-caption-delay="300">Trabalhamos  com veículos e maquinário  <span class="text-italic font-weight-bold">de ótima qualidade</span>
                         </h2>
-                        <div class="button-block" data-caption-animate="fadeInUp" data-caption-delay="450"><a class="button button-primary-gradient" href="{%url 'site:vehicles' %}"><span>confira nossas máquinas</span></a></div>
+                        <div class="button-block" data-caption-animate="fadeInUp" data-caption-delay="450"><a class="button button-primary-gradient" href="{%url 'site:vehicles' %}"><span>mais detalhes</span></a></div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="swiper-slide" data-slide-bg="{%static 'site/images/cacamba.png' %}">
+            <div class="swiper-slide" data-slide-bg="{%static 'site/images/newHolandCapa.png' %}">
               <div class="swiper-slide-caption context-dark">
                 <div class="container">
                   <div class="row">
@@ -94,7 +101,7 @@
                 </div>
               </div>
             </div>
-            <div class="swiper-slide" data-slide-bg="{%static 'site/images/retroescavadeira.png'%}">
+            <div class="swiper-slide" data-slide-bg="{%static 'site/images/cacambaCapa.png'%}">
               <div class="swiper-slide-caption context-dark">
                 <div class="container">
                   <div class="row">
@@ -175,98 +182,48 @@
           </div>
         </div>
       </section>
-      <!-- Featured Projects-->
-      <section style="background-color:#09207F;"  class="section section-lg bg-default text-center">
-        <div style="color: white;" class="container">
-          <h2 style="color: white;" class="wow fadeIn">Nossos Veículos</h2>
-          <div class="row row-30 row-md-50 row-xl-70">
-            <div class="col-sm-6 col-lg-4 wow fadeIn">
-              <!-- Post Minimal-->
-              <div class="post-minimal">
-                <figure class="post-minimal-media"><div href="#"><img class="post-minimal-image" src="{%static 'site/images/basculante.png' %}" alt="" width="370" height="260"/></div></figure>
-                <div class="post-minimal-meta">
-                  <ul class="list-inline">
-                    <li class="list-inline-item">Optar Locações</li>
-                  </ul>
-                </div>
-                <h4 style="color: white;" class="post-minimal-title"><a href="">Caminhão axor 3131 6X4 Basculante </a></h4>
-              </div>
+
+      <section style="background-color:#09207F; background:url({%static 'site/images/fundoBasculante.png' %}); background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;" class="section section-lg bg-default text-center">
+        <div class="col-10 container">
+          <h1 style="color:white;" class="wow fadeIn">Nossos Veículos</h1>
+          <div class="row row-30 justify-content-center">
+            <div class="col-sm-10 col-md-6 wow fadeIn">
+              <!-- Post Light--><div class=" post-light context-dark"  style="background-image: url({%static 'site/images/basculante.png'%});">
+                <div class="post-light-inner">
+                  <div class="badge">Veículo</div>
+                  <div class="post-light-main">
+                    <h4 class="post-light-title">Caminhão Axor 3131 6X Basculante</h4>
+                  </div>
+                </div></div>
             </div>
-            <div class="col-sm-6 col-lg-4 wow fadeIn" data-wow-delay=".2s">
-              <!-- Post Minimal-->
-              <div class="post-minimal">
-                <figure class="post-minimal-media"><div href=""><img class="post-minimal-image" src="{%static 'site/images/cacambaGrid.png' %}" alt="" width="370" height="260"/></div></figure>
-                <div class="post-minimal-meta">
-                  <ul class="list-inline">
-                    <li class="list-inline-item">OPTAR LOCAÇÕES </li>
-                  </ul>
-                </div>
-                <h4 style="color: white;" class="post-minimal-title"><a href="">Caçamba</a></h4>
-              </div>
+            <div class="col-sm-10 col-md-6 wow fadeIn" data-wow-delay=".2s">
+              <!-- Post Light--><div class="post-light context-dark" href="#" style="background-image: url({%static 'site/images/Newholland.png' %});">
+                <div class="post-light-inner">
+                  <div class="badge">Veículo</div>
+                  <div class="post-light-main">
+                    <h4 class="post-light-title">NewHolland</h4>
+                  </div>
+                </div></div>
             </div>
-            <div class="col-sm-6 col-lg-4 wow fadeIn" data-wow-delay=".4s">
-              <!-- Post Minimal-->
-              <div class="post-minimal">
-                <figure class="post-minimal-media"><div href=""><img class="post-minimal-image" src="{%static 'site/images/Newholland.png' %}" alt="" width="370" height="260"/></div></figure>
-                <div class="post-minimal-meta">
-                  <ul class="list-inline">
-                    <li class="list-inline-item">OPTAR LOCAÇÕES </li>
-                  </ul>
-                </div>
-                <h4 style="color: white;" class="post-minimal-title"><a href="">New Holland B95</a></h4>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 wow fadeIn">
-              <!-- Post Minimal-->
-              <div class="post-minimal">
-                <figure class="post-minimal-media"><div href="#"><img class="post-minimal-image" src="{%static 'site/images/cacambaGrid.png' %}" alt="" width=370 height="260"/></div></figure>
-                <div class="post-minimal-meta">
-                  <ul class="list-inline">
-                    <li class="list-inline-item">OPTAR LOCAÇÕES </li>
-                  </ul>
-                </div>
-                <h4 style="color: white;" class="post-minimal-title"><a href="#">Caçamba </a></h4>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 wow fadeIn" data-wow-delay=".2s">
-              <!-- Post Minimal-->
-              <div class="post-minimal">
-                <figure class="post-minimal-media"><div href="#"><img class="post-minimal-image" src="{%static 'site/images/tratorGrid .png' %}" alt="" width="370" height="260"/></div></figure>
-                <div class="post-minimal-meta">
-                  <ul class="list-inline">
-                    <li class="list-inline-item">OPTAR LOCAÇÕES </li>
-                  </ul>
-                </div>
-                <h4 style="color: white;" class="post-minimal-title"><a href="#">Trator</a></h4>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 wow fadeIn" data-wow-delay=".4s">
-              <!-- Post Minimal-->
-              <div class="post-minimal">
-                <figure class="post-minimal-media"><div href="#"><img class="post-minimal-image" src="{%static 'site/images/retroGrid.png' %}" alt="" width="370" height="260"/></div></figure>
-                <div class="post-minimal-meta">
-                  <ul class="list-inline">
-                    <li class="list-inline-item">OPTAR LOCAÇÕES</li>
-                  </ul>
-                </div>
-                <h4 style="color: white;" class="post-minimal-title"><a href="#">Retroescavadeira</a></h4>
-              </div>
-            </div>
-          </div><a class="button button-lg button-primary-gradient wow fadeIn" data-wow-delay=".2s" href="{%url 'site:vehicles' %}"><span>Ver Todos os Veículos</span></a>
+           
+            
         </div>
       </section>
+
+      <!-- Featured Projects-->
       <!-- Latest Blog Posts-->
       <section class="section section-lg bg-default text-center">
-        <div class="container">
-          <h2 class="wow fadeIn">Clientes</h2>
+        <div class="col-10 container">
+          <h1 class="wow fadeIn">Nossos Clientes</h1>
           <div class="row row-30 justify-content-center">
             <div class="col-sm-10 col-md-6 wow fadeIn">
               <!-- Post Light--><div class=" post-light context-dark"  style="background-image: url({%static 'site/images/contrutora1.jpg'%});">
                 <div class="post-light-inner">
                   <div class="badge">Cliente</div>
                   <div class="post-light-main">
-                    <time class="post-light-time" datetime="2019">July 5, 2019, at 12:07 pm</time>
-                    <h4 class="post-light-title">Construtora 1</h4>
+                    <h4 class="post-light-title">Andrade Gutierrez</h4>
                   </div>
                 </div></div>
             </div>
@@ -276,7 +233,7 @@
                   <div class="badge">Cliente</div>
                   <div class="post-light-main">
                     <time class="post-light-time" datetime="2019">July 5, 2019, at 12:07 pm</time>
-                    <h4 class="post-light-title">construtora2</h4>
+                    <h4 class="post-light-title">Grupo Agis</h4>
                   </div>
                 </div></div>
             </div>
@@ -286,7 +243,7 @@
                   <div class="badge">Cliente</div>
                   <div class="post-light-main">
                     <time class="post-light-time" datetime="2019">July 5, 2019, at 12:07 pm</time>
-                    <h4 class="post-light-title">Construtora3</h4>
+                    <h4 class="post-light-title">SETA</h4>
                   </div>
                 </div></div>
             </div>
@@ -296,7 +253,27 @@
                   <div class="badge">Cliente</div>
                   <div class="post-light-main">
                     <time class="post-light-time" datetime="2019">July 5, 2019, at 12:07 pm</time>
-                    <h4 class="post-light-title">Contrutora4</h4>
+                    <h4 class="post-light-title">Grupo Marquisa</h4>
+                  </div>
+                </div></div>
+            </div>
+            <div class="col-sm-10 col-md-6 wow fadeIn" data-wow-delay=".2s">
+              <!-- Post Light--><div class="post-light context-dark" href="#" style="background-image: url({%static 'site/images/contrutora5.png' %});">
+                <div class="post-light-inner">
+                  <div class="badge">Cliente</div>
+                  <div class="post-light-main">
+                    <time class="post-light-time" datetime="2019">July 5, 2019, at 12:07 pm</time>
+                    <h4 class="post-light-title">ALSTOM</h4>
+                  </div>
+                </div></div>
+            </div>
+            <div class="col-sm-10 col-md-6 wow fadeIn" data-wow-delay=".2s">
+              <!-- Post Light--><div class="post-light context-dark" href="#" style="background-image: url({%static 'site/images/contrutora6.png' %});">
+                <div class="post-light-inner">
+                  <div class="badge">Cliente</div>
+                  <div class="post-light-main">
+                    <time class="post-light-time" datetime="2019">July 5, 2019, at 12:07 pm</time>
+                    <h4 class="post-light-title">Della Volpe</h4>
                   </div>
                 </div></div>
             </div>
