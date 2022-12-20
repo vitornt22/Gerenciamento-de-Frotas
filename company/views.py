@@ -2,7 +2,6 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from location.gerarPdf import gerarObj
@@ -12,9 +11,8 @@ from company.models import Company
 
 from .forms import CompanyForm, CompanyUserChangeForm
 
+
 # Create your views here.
-
-
 def login_view(request):
 
     if request.method == 'GET':

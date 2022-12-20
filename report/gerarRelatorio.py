@@ -45,7 +45,7 @@ def line(pdf, obj, cont, categoria):
     pdf.setFillColor('#000')
     pdf.setFont("Helvetica", 10)
 
-    if obj != None:
+    if obj is not None:
         if categoria == "SAIDAS":
             pdf.drawString(30, cont+5, obj.occasion)
         else:
