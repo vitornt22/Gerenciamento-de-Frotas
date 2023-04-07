@@ -50,6 +50,9 @@ h1.heading {
     margin: 0 0 0.3em;
   }
 } 
+.card-scale:hover {
+  transform: scale(1.2);
+}
 .card {
   display: block; 
     margin-bottom: 20px;
