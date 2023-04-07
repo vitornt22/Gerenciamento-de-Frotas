@@ -56,7 +56,7 @@
                     </li>
                     <li class="rd-nav-item"><a class="rd-nav-link" href="{%url 'site:aboutUs' %}">Sobre Nós</a>
                     </li>
-                    <li class="rd-nav-item"><a class="rd-nav-link" href="{%url 'site:vehicles' %}">Máquinas</a>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="{%url 'site:services' %}">Serviços</a>
                     </li>
                     <li class="rd-nav-item"><a class="rd-nav-link" href="{%url 'site:contact' %}">Contato</a>
                     </li>
@@ -68,11 +68,11 @@
         </div>
       </header>
       
-      <section>
+      <section >
         <!-- Swiper-->
         <div style="background-color:#228733;"><br></div>
         <div style="background-color:#C7B124;"><br></div>
-        <div class="swiper-container swiper-slider swiper-slider-1" data-loop="false" data-autoplay="5000" data-simulate-touch="false">
+        <div class="swiper-container swiper-slider swiper-slider-1" data-loop="false" data-autoplay="4000" data-simulate-touch="false">
           <div class="swiper-wrapper">
             <div class="swiper-slide" data-slide-bg="{%static 'site/images/capaOptar.png' %}">
               <div class="swiper-slide-caption context-dark">
@@ -83,7 +83,7 @@
                         <h6 data-caption-animate="slideInLeft" data-caption-delay="150">Na OPTAR LOCAÇÕES</h6>
                         <h2 data-caption-animate="slideInLeft" data-caption-delay="300">Trabalhamos  com veículos e maquinário  <span class="text-italic font-weight-bold">de ótima qualidade</span>
                         </h2>
-                        <div class="button-block" data-caption-animate="fadeInUp" data-caption-delay="450"><a class="button button-primary-gradient" href="{%url 'site:vehicles' %}"><span>mais detalhes</span></a></div>
+                        <div class="button-block" data-caption-animate="fadeInUp" data-caption-delay="450"><a class="button button-primary-gradient" href="{%url 'site:services' %}"><span>mais detalhes</span></a></div>
                       </div>
                     </div>
                   </div>
@@ -99,7 +99,7 @@
                         <h6 data-caption-animate="slideInLeft" data-caption-delay="150">Aqui você encontra</h6>
                         <h2 data-caption-animate="slideInLeft" data-caption-delay="300"> Uma variedade de máquinas para <span class="text-italic font-weight-bold">Sua Empresa</span>
                         </h2>
-                        <div class="button-block" data-caption-animate="fadeInUp" data-caption-delay="450"><a class="button button-primary-gradient" href="{%url 'site:vehicles' %}"><span>Mais detalhes</span></a></div>
+                        <div class="button-block" data-caption-animate="fadeInUp" data-caption-delay="450"><a class="button button-primary-gradient" href="{%url 'site:services' %}"><span>Mais detalhes</span></a></div>
                       </div>
                     </div>
                   </div>
@@ -115,7 +115,7 @@
                         <h6 data-caption-animate="slideInLeft" data-caption-delay="150">Faça parte da familia OPTAR</h6>
                         <h2 style="" data-caption-animate="slideInLeft" data-caption-delay="300">e torne a sua <span class="text-italic font-weight-bold">empresa produtiva</span>
                         </h2>
-                        <div class="button-block" data-caption-animate="fadeInUp" data-caption-delay="450"><a class="button button-primary-gradient" href="{%url 'site:vehicles' %}"><span>Mais detalhes</span></a></div>
+                        <div class="button-block" data-caption-animate="fadeInUp" data-caption-delay="450"><a class="button button-primary-gradient" href="{%url 'site:services' %}"><span>Mais detalhes</span></a></div>
                       </div>
                     </div>
                   </div>
@@ -237,10 +237,11 @@
                     <img class="card-img-top" src="{%static 'site/images/obra-publica.jpg' %}" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title">Serviço</h5>
-                      <p class="card-text">Com foco nos centros urbanos e áreas em desenvolvimento, a
+                      <p class="card-text">
+                        Com foco nos centros urbanos e áreas em desenvolvimento, a
                         tuamos na construção e reforma de espaços públicos como: Praças, Escolas, Unidades de Saúde,
-                         entre outras, além de Obras de Pavimentação, Canalização, Drenagens, Contenções e Obras de
-                          Artes Especiais.
+                        entre outras, além de Obras de Pavimentação, Canalização, Drenagens, Contenções e Obras de
+                        Artes Especiais.
                     </div>
                   </div>
                 </div>
@@ -252,11 +253,12 @@
       <div style="background-color:#228733;"><br></div>
       <div style="background-color:#C7B124;"><br></div>
       
-      <section class="section section-lg bg-gray-100 ">
-
+      <section style="background-color:#09207F; background:url({%static 'site/images/fundoBasculante.png' %}); background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;" class="section section-lg bg-default text-center">
       
         <div class="col-10 container">
-          <h1 class="text-center wow fadeIn">ALGUMAS DAS OBRAS FINALIZADAS</h1>
+          <h1 style='color:white;' class="text-center wow fadeIn">ALGUMAS DAS OBRAS FINALIZADAS</h1>
           <div class="row row-30 justify-content-center">
             <div class="col-sm-10 col-md-4 wow fadeIn">
               <!-- Post Light--><div class=" post-light context-dark"  style="background-image: url({%static 'site/images/contrutora1.jpg'%});">
@@ -293,60 +295,50 @@
       <!-- Latest Blog Posts-->
       <section class="section section-lg bg-default text-center">
         <div class="col-10 container">
-          <h1 class="wow fadeIn">Nossos Clientes</h1>
+          <h1 class="wow fadeIn">NOSSOS CLIENTES</h1>
           <div class="row row-30 justify-content-center">
             <div class="col-sm-10 col-md-2 wow fadeIn">
               <!-- Post Light--><div class=" post-light context-dark"  style="background-image: url({%static 'site/images/contrutora1.jpg'%});">
                 <div class="post-light-inner">
-                  <div class="badge">Cliente</div>
                   <div class="post-light-main">
-                    <h4 class="post-light-title">Andrade Gutierrez</h4>
                   </div>
                 </div></div>
             </div>
             <div class="col-sm-10 col-md-2 wow fadeIn" data-wow-delay=".2s">
               <!-- Post Light--><div class="post-light context-dark" href="#" style="background-image: url({%static 'site/images/contrutora2.jpg' %});">
                 <div class="post-light-inner">
-                  <div class="badge">Cliente</div>
                   <div class="post-light-main">
-                    <h4 class="post-light-title">Grupo Agis</h4>
                   </div>
                 </div></div>
             </div>
             <div class="col-sm-10 col-md-2 wow fadeIn">
               <!-- Post Light--><div class="post-light context-dark" href="#" style="background-image: url({%static 'site/images/contrutora3.png' %});">
                 <div class="post-light-inner">
-                  <div class="badge">Cliente</div>
                   <div class="post-light-main">
-                    <h4 class="post-light-title">SETA</h4>
                   </div>
                 </div></div>
             </div>
             <div class="col-sm-10 col-md-2 wow fadeIn" data-wow-delay=".2s">
               <!-- Post Light--><div class="post-light context-dark" href="#" style="background-image: url({%static 'site/images/contrutora4.jpg' %});">
                 <div class="post-light-inner">
-                  <div class="badge">Cliente</div>
                   <div class="post-light-main">
-                    <h4 class="post-light-title">Grupo Marquisa</h4>
                   </div>
                 </div></div>
             </div>
             <div class="col-sm-10 col-md-2 wow fadeIn" data-wow-delay=".2s">
               <!-- Post Light--><div class="post-light context-dark" href="#" style="background-image: url({%static 'site/images/contrutora5.png' %});">
                 <div class="post-light-inner">
-                  <div class="badge">Cliente</div>
                   <div class="post-light-main">
-                    <h4 class="post-light-title">ALSTOM</h4>
                   </div>
                 </div></div>
             </div>
             <div class="col-sm-10 col-md-2 wow fadeIn" data-wow-delay=".2s">
               <!-- Post Light--><div class="post-light context-dark" href="#" style="background-image: url({%static 'site/images/contrutora6.png' %});">
                 <div class="post-light-inner">
-                  <div class="badge">Cliente</div>
+                 <!-- <div class="badge">Cliente</div>
                   <div class="post-light-main">
                     <h4 class="post-light-title">Della Volpe</h4>
-                  </div>
+                  </div>-->
                 </div></div>
             </div>
         </div>

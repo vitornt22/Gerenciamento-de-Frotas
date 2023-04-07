@@ -14,5 +14,5 @@ def aboutUs(request):
     return render(request, 'site/about.html')
 
 
-def vehicles(request):
+def services(request):
     return render(request, 'site/vehicles.html')
