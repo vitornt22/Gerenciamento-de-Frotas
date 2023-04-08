@@ -45,7 +45,7 @@ A primeira coisa será atualizar tudo:
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt autoremove -y
-sudo apt install build-e    ssential -y
+sudo apt install build-essential -y
 sudo apt install python3.9 python3.9-venv python3.9-dev -y
 sudo apt install nginx -y
 sudo apt install certbot python3-certbot-nginx -y
@@ -58,6 +58,8 @@ sudo apt install git
 ```
 # Nós fizemos isso acima
 sudo apt install postgresql postgresql-contrib -y
+
+
 ```
 
 Caso queira mais detalhes: https://youtu.be/VLpPLaGVJhI  
