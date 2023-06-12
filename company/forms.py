@@ -60,7 +60,6 @@ class CompanyForm(UserChangeForm):
 
     def clean_phone(self):
         number = self.cleaned_data.get('phone')
-        print(number)
 
         if len(number) < 15 or number is None:
             raise ValidationError((
@@ -81,7 +80,6 @@ class CompanyFormAdmin(forms.ModelForm):
 
     def clean_email(self):
         data = self.cleaned_data.get('email')
-        print('CNPJ VALIDACAO ENTROu', data)
         if Company.objects.filter(email=data).count() > 1:
             return ValidationError(
                 'Email existente',
@@ -92,7 +90,6 @@ class CompanyFormAdmin(forms.ModelForm):
 
     def clean_cnpj(self):
         data = self.cleaned_data.get('cnpj')
-        print('CNPJ VALIDACAO ENTROu', data)
         if Company.objects.filter(cnpj=data).exists():
             if Company.objects.filter(cnpj=data).count() > 1:
                 return ValidationError(

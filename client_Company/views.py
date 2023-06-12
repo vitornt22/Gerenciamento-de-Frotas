@@ -2,7 +2,7 @@ from company.models import Company
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import  redirect, render
 from location.forms import LocationForm
 from location.gerarPdf import gerarObj
 from location.models import Contract, Location
@@ -27,8 +27,7 @@ def register_Company(request, id):
             client.save()
             messages.success(request, 'Locação Cadastrada com Sucesso')
             form = Client_CompanyForm()
-        else:
-            print("NAO E VALISo")
+       
     else:
         form = Client_CompanyForm()
 
@@ -88,9 +87,7 @@ def edit(request, slugParam):
 
             messages.success(
                 request, 'Dados alterados com sucesso!')
-            return redirect('clientCompany:empresas')
-        else:
-            print("AFFF")
+       
     return render(request, 'clientes/EditarClientes.html', {'active': 4, 'form': form, 'client': instancia})  # noqa
 
 

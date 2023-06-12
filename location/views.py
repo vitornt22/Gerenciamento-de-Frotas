@@ -73,8 +73,6 @@ def edit(request, slugParam, id):
     vehicle = Vehicle.objects.get(company_user=request.user, slug=slugParam)
     loc = Location.objects.get(
         id_company=request.user, id_vehicle=vehicle, id=id)
-    print("1: ", loc)
-    print("1 Veiuclo:", vehicle)
 
     pagos = Gain.objects.filter(id_location=id, it_paid=True).count()
     locationForm = LocationEditForm(instance=loc)
@@ -99,11 +97,9 @@ def edit(request, slugParam, id):
     anterior = locationForm['number_months'].value()
     last_date = loc.end_location
     current_date = loc.start_location
-    print("CURRENT DATA: ", current_date)
 
     if request.POST:
 
-        print("INIOOOU,", request.POST.get('inicio'))
         locationForm = LocationEditForm(request.POST, instance=loc)
 
         if locationForm.is_valid():
@@ -113,7 +109,6 @@ def edit(request, slugParam, id):
             edit.id_company = request.user
 
             if pagos == 0:
-                print("ENTROU NA CONDIÇÃO 0", edit.start_location)
 
                 if Location.objects.filter(id_company=request.user, id_vehicle=vehicle, start_location__lte=edit.start_location, end_location__gte=edit.start_location).exclude(id=id).exists():  # noqa
                     messages.error(request, 'Data já existe!')
@@ -246,9 +241,7 @@ def locar(request, slugParam, profileParam):
             register = form.save(commit=False)
             register.id_vehicle = vehicle
             idEmpresa = request.POST.get('empresas')
-            print("IDEMPRESA", idEmpresa)
             register.id_empresa = Client_company.objects.get(id=idEmpresa)
-            print("REGISTER.ID_empresa: ", register.id_empresa)
             register.id_company = request.user
             register.slug_vehicle = vehicle.slug
             register.status = True  # em andamento e pode ser editado
@@ -257,12 +250,9 @@ def locar(request, slugParam, profileParam):
             vehicle.it_location = True
             vehicle.save()
             addGains(register, request.user, 0)
-            print("REGISTER", register.start_location)
             gerarObj(register)
             messages.success(request, 'Locação Cadastrada com Sucesso')
             form = LocationForm()
-        else:
-            print("NAO E VALISo")
 
     else:
         form = LocationForm()

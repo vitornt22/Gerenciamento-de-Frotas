@@ -20,14 +20,11 @@ def login_view(request):
     elif request.method == 'POST':
 
         cnpj = request.POST.get('cnpjValue')
-        print("O CNPJ: ", cnpj)
         password = request.POST.get('password')
-        print("PASSWORD: ", password)
         user = authenticate(username=cnpj, password=password)
 
         if user is not None:
             login(request, user)
-            print("USUARIO", user)
             return redirect(reverse('vehicle:indexVehicle'))
             # Redirecione para uma página de sucesso.
         else:
@@ -60,15 +57,11 @@ def profile(request):
 
             # atualizando os contrato de locacoes em andamento
             try:
-                print("ENTRANDOOOO")
                 for i in Location.objects.filter(id_company=edit, status=True):
                     if Contract.objects.filter(id_location=i).exists():
                         gerarObj(i)
 
             except:
-                print("NAO ESTA ENTRANDO")
                 pass
 
-        else:
-            print('NAO E VALIDOOOO')
     return render(request, 'perfil.html', {'active': 5, 'form': form, 'company': request.user})

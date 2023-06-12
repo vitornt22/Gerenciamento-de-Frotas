@@ -55,7 +55,6 @@ def index(request):
     if request.GET.get("inputSearch"):
         valida = request.GET.get("inputSearch")
         resultados = valida
-        print("VALIDAA: ", valida)
         self.license_plate = self.license_plate.upper()
 
         if len(valida) > 0:
@@ -131,12 +130,10 @@ def register_vehicle(request):
             types_reg.types = request.POST.get('vehicle_type')
             register.vehicle_type = request.POST.get('vehicle_type')
             register.company_user = request.user
-            print("REQUEST USER ", request.user)
             register.save()
             messages.success(request, 'Veiculo Cadastrado com Sucesso')
             form = VehicleForm()
     else:
-        print("NAO E VALIDO")
         form = VehicleForm()
     return render(request, 'vehicle/cadastroVeiculo.html', {'active': 1, 'form': form, 'types': types})
 

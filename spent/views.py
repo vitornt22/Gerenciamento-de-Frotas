@@ -23,14 +23,11 @@ def spentEdit(request, slugParam, id):
     if request.POST:
         spentForm = SpentForm(request.POST, instance=spent)
         if spentForm.is_valid():
-            print("ENTROUUU")
             edit = spentForm.save(commit=False)
             edit.id_company = request.user
             edit.id_vehicle = vehicle
             edit.save()
             messages.success(request, 'Gasto editado com sucesso')
-        else:
-            print("NAO ENTROU")
     return render(request, 'spent/EditarGasto.html', {'active': 1, 'spent': spent, 'include': 1,  'id': id, 'slug': slugParam, 'vehicle': vehicle, 'form': spentForm})  # noqa
 
 
@@ -62,7 +59,6 @@ def spents(request, slugParam):
             data = None
 
     a = request.POST.get('removerTableButton')
-    print("VALOR DE A", a)
 
     if request.POST.get('removerTableButton'):
         remove = Spent.objects.filter(id_vehicle=vehicle, id=a)

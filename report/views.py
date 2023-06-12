@@ -33,7 +33,6 @@ def caixa(request):
 
 
 def listaFinancas(empresa):
-    print("EMPRESSSA", empresa)
     entradas = [0]*12
     saidas = [0]*12
     lucro = [0]*12
@@ -57,8 +56,6 @@ def listaFinancas(empresa):
 def reports(request):
     mes = datetime.date.today().month
     lucroLista, aumento, entradas, saidas = listaFinancas(request.user)
-    print("ENTRADAS: ", entradas)
-    print('Saidas:', saidas)
     caixaEmpresa = caixa(request)
     qnt_company = Client_company.objects.filter(
         company_user=request.user).count()
@@ -74,7 +71,6 @@ def reports(request):
         scroll = 10
         month = request.POST.get('month')
         year = str(request.POST.get('year'))
-        print("ANOOO e mês ", month)
         aux = str(month)
         if len(month) > 0:
             if int(month) < 10:
@@ -103,11 +99,8 @@ def reports(request):
 @ login_required(login_url='company:login', redirect_field_name='next')
 def gerarRelatorioView(request, id):
     report = Report.objects.get(id=id, id_company=request.user)
-    print("REPOOOORT:", report)
     gains = Gain.objects.filter(it_paid=True, id_company=request.user, date__month=report.month, date__year=report.year)  # noqa
     spents = Spent.objects.filter(id_company=request.user, date__month=report.month, date__year=report.year)  # noqa
-    print("GANHOS E GASTOS", gains, spents)
-    print("REPOOOOSOSOSSSNSNNS: ", report)
     # Create a file-like buffer to receive PDF data.
     buffer = io.BytesIO()
 

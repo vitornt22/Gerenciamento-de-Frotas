@@ -15,7 +15,6 @@ from .models import Contract
 def gerarObj(location):
     v = location.id_vehicle
     e = location.id_company
-    print("VALOR DE E: ")
     client = location.id_empresa
     try:
         contract = Contract.objects.get(id_location=location)

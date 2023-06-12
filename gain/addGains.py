@@ -18,7 +18,6 @@ def addGains(location, company, pagos):
         aux = 1
 
     for i in range(pagos, location.number_months):
-        print("ENTROUUUU")
         if not Gain.objects.filter(id_location=location, id_company=company, date=date).exists():  # noqa
             newGain = Gain()
             # MUDAR PRA ID LOCACAO

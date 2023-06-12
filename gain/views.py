@@ -133,6 +133,5 @@ def gains(request, slugParam):
             tabela = None
             data = None
 
-    print("ID: ", request.POST.get('its_Paid'))
 
     return render(request, 'gain/ganhos.html', {'active': 1, 'portionTag': 'gains:portions', 'include': 1, 'tag': tag, 'number': number, 'resultados': data, 'slug': slugParam, 'vehicle': vehicle,  'tabela': tabela})
