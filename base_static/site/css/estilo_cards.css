@@ -50,6 +50,9 @@ h1.heading {
     margin: 0 0 0.3em;
   }
 } 
+
+
+
 .card-scale:hover {
   transform: scale(1.2);
 }
@@ -101,3 +104,7 @@ h1.heading {
   font-weight:600;
   text-transform: uppercase
 }
+
+.zoom-image {
+	transform: scale(5.0);
+  }

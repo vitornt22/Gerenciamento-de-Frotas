@@ -1,7 +1,7 @@
 ###############################################################################
 # Replace
 # optar to the name of the gunicorn file you want
-# vitor to your user name
+# root to your user name
 # app_repo to the folder name of your project
 # Optar to the folder name where you find a file called wsgi.py
 #
@@ -32,15 +32,15 @@ Requires=optar.socket
 After=network.target
 
 [Service]
-User=vitor
+User=root
 Group=www-data
 Restart=on-failure
-EnvironmentFile=/home/vitor/app_repo/.env
-WorkingDirectory=/home/vitor/app_repo
+EnvironmentFile=/home/root/app_repo/.env
+WorkingDirectory=/home/root/app_repo
 # --error-logfile --enable-stdio-inheritance --log-level and --capture-output
 # are all for debugging purposes.
-ExecStart=/home/vitor/app_repo/venv/bin/gunicorn \
-          --error-logfile /home/vitor/app_repo/gunicorn-error-log \
+ExecStart=/home/root/app_repo/venv/bin/gunicorn \
+          --error-logfile /home/root/app_repo/gunicorn-error-log \
           --enable-stdio-inheritance \
           --log-level "debug" \
           --capture-output \

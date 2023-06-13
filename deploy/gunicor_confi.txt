@@ -1,0 +1,72 @@
+REPLACE 
+
+NAME FILE = optar.socket
+USER = root 
+PROJECT_DIR= app_repo
+MYPROJECT_WSGI= Optar
+
+
+# GUNICORN.SOCK CONFIG 
+
+
+sudo nano /etc/systemd/system/optar.socket
+
+[Unit]
+Description=gunicorn socket
+
+[Socket]
+ListenStream=/run/optar.sock
+
+[Install]
+WantedBy=sockets.target
+
+--------------------------------------------------
+# GUNICORN SERVICE CONFIG 
+
+sudo nano /etc/systemd/system/optar.service
+
+## configurações 
+
+
+[Unit]
+Description=gunicorn daemon
+Requires=optar.socket
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/root/app_repo
+ExecStart=/root/app_repo/venv/bin/gunicorn \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/run/optar.sock \
+          Optar.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
+
+---------------------------------------------------
+
+# Comanndo para ativar 
+
+sudo systemctl daemon-reload
+sudo systemctl start optar.socket
+sudo systemctl enable optar.socket
+
+---------------------------------------------------
+
+
+# Verificando GUNICORN.Socket 
+
+sudo systemctl status optar.socket
+file /run/optar.sock
+sudo journalctl -u optar.socket
+
+
+# Testando a ativação do socket
+
+sudo systemctl status optar
+
+#
